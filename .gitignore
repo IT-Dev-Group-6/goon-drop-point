@@ -6,5 +6,7 @@
 !.gitignore
 !pictures/
 !pictures/*
-!Chops_Dropshot/
-!Chops_Dropshot/*
+!Chops/
+!Chops/*
+!Dropshot/
+!Dropshot/*
