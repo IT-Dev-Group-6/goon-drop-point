@@ -1,0 +1,8 @@
+# Ignore everything
+*
+
+# Except .miz files, .gitignore, and pictures folder
+!*.miz
+!.gitignore
+!pictures/
+!pictures/*
