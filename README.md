@@ -1,5 +1,7 @@
 # goon-drop-point
 
+<img src="pictures/IT_-_DEV_GROUP_-_6.jpg" alt="IT Dev Group 6" width="200"/>
+
 Shared drop point for DCS World `.miz` mission files used by IT-Dev-Group-6.
 
 ## What's here
