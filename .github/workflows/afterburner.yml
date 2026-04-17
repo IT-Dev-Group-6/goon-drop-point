@@ -1,0 +1,41 @@
+name: Afterburner Mission Lint
+
+on:
+  push:
+    paths:
+      - "**.miz"
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+
+    name: Analyze missions
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dcs-afterburner
+        run: pip install git+https://github.com/TylerDOC1776/dcs-afterburner@master
+
+      - name: Analyze all .miz files
+        run: |
+          mkdir -p reports
+          find . -name "*.miz" | while read miz; do
+            safe=$(echo "$miz" | sed 's|[/. ]|_|g')
+            echo "Analyzing $miz"
+            afterburner analyze "$miz" --json > "reports/${safe}.json" || true
+          done
+
+      - name: Upload reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: afterburner-reports
+          path: reports/
