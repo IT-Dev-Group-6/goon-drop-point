@@ -1,0 +1,77 @@
+name: Mission Benchmark
+
+permissions:
+  contents: read
+  pull-requests: write
+
+on:
+  pull_request:
+    paths:
+      - "**/*.miz"
+
+jobs:
+  benchmark:
+    name: Benchmark Mission Files
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install afterburner
+        run: pip install git+https://github.com/TylerDOC1776/dcs-afterburner@master
+
+      - name: Find changed .miz files
+        id: changed
+        run: |
+          git fetch origin ${{ github.base_ref }}
+          FILES=$(git diff --name-only --diff-filter=AM origin/${{ github.base_ref }}...HEAD -- '*.miz' | tr '\n' ' ')
+          echo "files=$FILES" >> $GITHUB_OUTPUT
+
+      - name: Generate reports
+        id: report
+        if: steps.changed.outputs.files != ''
+        run: |
+          mkdir -p reports
+          FAILED=0
+          for f in ${{ steps.changed.outputs.files }}; do
+            STEM=$(basename "$f" .miz)
+            echo "Analyzing $f..."
+            afterburner report "$f" --format md > "reports/${STEM}.md"
+            if ! afterburner analyze "$f" --fail-on critical; then
+              FAILED=1
+            fi
+          done
+          echo "$FAILED" > reports/.failed
+          cat reports/*.md > reports/combined.md
+
+      - name: Upload reports
+        if: steps.changed.outputs.files != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: benchmark-reports
+          path: reports/*.md
+
+      - name: Post PR comment
+        if: steps.changed.outputs.files != ''
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const body = '## Mission Benchmark Report\n\n' + fs.readFileSync('reports/combined.md', 'utf8');
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: body
+            });
+
+      - name: Fail on critical findings
+        if: steps.changed.outputs.files != ''
+        run: |
+          if [ "$(cat reports/.failed)" = "1" ]; then
+            echo "Critical findings detected. Merge blocked — review the PR comment for details."
+            exit 1
+          fi
