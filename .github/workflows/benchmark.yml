@@ -27,7 +27,7 @@ jobs:
         id: changed
         run: |
           git fetch origin ${{ github.base_ref }}
-          FILES=$(git diff --name-only --diff-filter=AM origin/${{ github.base_ref }}...HEAD -- '*.miz' | tr '\n' ' ')
+          FILES=$(git diff --name-only --diff-filter=AM origin/${{ github.base_ref }}...HEAD | grep '\.miz$' | tr '\n' ' ')
           echo "files=$FILES" >> $GITHUB_OUTPUT
 
       - name: Generate reports
