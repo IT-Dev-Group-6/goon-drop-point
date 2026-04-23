@@ -10,3 +10,9 @@
 !Chops/*
 !Dropshot/
 !Dropshot/*
+!uploads/
+!uploads/*.miz
+!uploads/.gitkeep
+!.github/
+!.github/workflows/
+!.github/workflows/*.yml
