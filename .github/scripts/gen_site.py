@@ -10,7 +10,7 @@ REPORTS_DIR = os.path.join(WEB_DIR, "reports")
 REPORTS_SRC = os.path.join(REPO_ROOT, "reports")
 RAW_BASE = "https://github.com/IT-Dev-Group-6/goon-drop-point/raw/main"
 
-SKIP_DIRS = {".git", ".github", "pictures", "web"}
+SKIP_DIRS = {".git", ".github", "pictures", "web", "reports", "Testing"}
 
 
 def discover_folders():
