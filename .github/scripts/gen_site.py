@@ -1,6 +1,5 @@
 import glob
 import os
-import subprocess
 from datetime import datetime, timezone
 
 import markdown
@@ -8,6 +7,7 @@ import markdown
 REPO_ROOT = os.getcwd()
 WEB_DIR = os.path.join(REPO_ROOT, "web")
 REPORTS_DIR = os.path.join(WEB_DIR, "reports")
+REPORTS_SRC = os.path.join(REPO_ROOT, "reports")
 RAW_BASE = "https://github.com/IT-Dev-Group-6/goon-drop-point/raw/main"
 
 SKIP_DIRS = {".git", ".github", "pictures", "web"}
@@ -274,15 +274,12 @@ def fmt_size(n):
     return f"{n / 1024:.0f} KB"
 
 
-def run_report(miz_path):
-    result = subprocess.run(
-        ["afterburner", "report", miz_path, "--format", "md"],
-        capture_output=True,
-        text=True,
-    )
-    if result.returncode == 0:
-        return result.stdout
-    return f"# Report Error\n\nFailed to generate report.\n\n```\n{result.stderr.strip()}\n```"
+def run_report(stem):
+    md_path = os.path.join(REPORTS_SRC, f"{stem}.md")
+    if os.path.exists(md_path):
+        with open(md_path) as f:
+            return f.read()
+    return f"# {stem}\n\nNo benchmark report available yet."
 
 
 def main():
@@ -303,7 +300,7 @@ def main():
         for miz_path, _ in files:
             stem = os.path.splitext(os.path.basename(miz_path))[0]
             print(f"Reporting {miz_path}...")
-            md = run_report(miz_path)
+            md = run_report(stem)
             html_content = markdown.markdown(md, extensions=["fenced_code", "tables"])
             report_page = (
                 REPORT_TMPL
