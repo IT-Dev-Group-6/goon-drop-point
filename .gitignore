@@ -8,8 +8,12 @@
 !pictures/*
 !Chops/
 !Chops/*
+!Foothold/
+!Foothold/*
 !Dropshot/
 !Dropshot/*
+!Testing/
+!Testing/*
 !uploads/
 !uploads/*.miz
 !uploads/.gitkeep
