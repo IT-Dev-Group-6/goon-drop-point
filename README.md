@@ -1,22 +1,60 @@
-# goon-drop-point
+# Goon Drop Point
 
 <img src="pictures/IT_-_DEV_GROUP_-_6.jpg" alt="IT Dev Group 6" width="200"/>
 
 Shared drop point for DCS World `.miz` mission files used by IT-Dev-Group-6.
 
-## What's here
+---
 
-Raw `.miz` files — no scripts, no docs, just missions. These are working files shared across the group for testing, development, and reference.
+## How to upload a mission file
 
-## Usage
+You don't need to know git. Everything below is done through the GitHub website.
 
-Clone the repo and drop `.miz` files directly in the root. Only `.miz` files are tracked (everything else is gitignored).
+### Step 1 — Create a GitHub account
 
-```bash
-git clone git@github.com:IT-Dev-Group-6/goon-drop-point.git
-```
+If you don't have one, go to [github.com](https://github.com) and sign up. It's free.
+
+### Step 2 — Fork this repo
+
+A **fork** is your own personal copy of the repo where you can make changes.
+
+1. Make sure you're logged in to GitHub
+2. Go to the top of this page and click the **Fork** button (top-right corner)
+3. On the next screen, click **Create fork**
+
+You now have a copy of the repo under your own account.
+
+### Step 3 — Upload your .miz file
+
+1. In your fork, click into the **`uploads`** folder
+2. Click **Add file → Upload files**
+3. Drag your `.miz` file into the box (or click *choose your files*)
+4. Scroll down and click **Commit changes**
+
+### Step 4 — Open a Pull Request
+
+A **pull request** (PR) is how you ask for your file to be added to the main repo.
+
+1. After committing, GitHub will show a yellow banner saying your branch is ahead — click **Contribute → Open pull request**
+   - If you don't see the banner, click the **Pull requests** tab, then **New pull request**
+2. Give it a title like `upload: My Mission Name`
+3. Click **Create pull request**
+
+### Step 5 — Wait for the check to pass
+
+Once you open the PR, an automated benchmark runs on your mission file. This checks for common performance issues.
+
+- A green checkmark ✅ means the file passed — someone will review and merge it
+- A red X ❌ means something needs attention — check the comment on the PR for details
+
+### Step 6 — Done
+
+Once merged, your file will appear on the [mission index page](https://it-dev-group-6.github.io/goon-drop-point/) and be available for the group to download.
+
+---
 
 ## Notes
 
-- `.miz` files are ZIP archives containing Lua tables — open with any ZIP tool or the DCS Mission Editor
-- Don't rename files without coordinating with the group — scripts may reference filenames directly
+- Drop files in `uploads/` — they'll be moved to the right folder after review
+- Don't rename `.miz` files after sharing them — scripts may reference filenames directly
+- `.miz` files are ZIP archives containing Lua — open with any ZIP tool or the DCS Mission Editor
