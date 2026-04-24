@@ -1,0 +1,38 @@
+name: Refresh All Reports
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    name: Regenerate all mission reports
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install afterburner
+        run: pip install git+https://github.com/IT-Dev-Group-6/dcs-afterburner@master
+
+      - name: Generate reports for all missions
+        run: |
+          mkdir -p reports
+          find . -name "*.miz" -not -path "./.git/*" | while read miz; do
+            STEM=$(basename "$miz" .miz)
+            echo "Reporting $miz..."
+            afterburner report "$miz" --format md > "reports/${STEM}.md"
+          done
+
+      - name: Commit reports
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add reports/
+          git diff --staged --quiet && echo "No changes to commit." || git commit -m "chore: refresh all benchmark reports"
+          git push
