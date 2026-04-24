@@ -25,7 +25,7 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies
-        run: pip install "git+https://github.com/TylerDOC1776/dcs-afterburner@master" markdown
+        run: pip install "git+https://github.com/IT-Dev-Group-6/dcs-afterburner@master" markdown
 
       - name: Generate site
         run: python .github/scripts/gen_site.py
