@@ -5,6 +5,8 @@ on:
 
 permissions:
   contents: write
+  actions: write
+  actions: write
 
 jobs:
   refresh:
@@ -36,3 +38,13 @@ jobs:
           git add reports/
           git diff --staged --quiet && echo "No changes to commit." || git commit -m "chore: refresh all benchmark reports"
           git push
+
+      - name: Trigger pages deploy
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run pages.yml --ref main
+
+      - name: Trigger pages deploy
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run pages.yml --ref main
