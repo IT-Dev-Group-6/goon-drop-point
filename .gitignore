@@ -22,6 +22,9 @@
 !.github/workflows/*.yml
 !.github/scripts/
 !.github/scripts/*.py
+!reports/
+!reports/.gitkeep
+!reports/*.md
 !web/
 !web/index.html
 !web/reports/
