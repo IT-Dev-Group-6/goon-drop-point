@@ -16,3 +16,10 @@
 !.github/
 !.github/workflows/
 !.github/workflows/*.yml
+!.github/scripts/
+!.github/scripts/*.py
+!web/
+!web/index.html
+!web/reports/
+!web/reports/.gitkeep
+!web/reports/*.html
