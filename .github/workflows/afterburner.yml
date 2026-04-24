@@ -26,7 +26,7 @@ jobs:
           python-version: "3.12"
 
       - name: Install dcs-afterburner
-        run: pip install git+https://github.com/TylerDOC1776/dcs-afterburner@master
+        run: pip install git+https://github.com/IT-Dev-Group-6/dcs-afterburner@master
 
       - name: Analyze all .miz files
         run: |
