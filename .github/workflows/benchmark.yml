@@ -23,7 +23,7 @@ jobs:
           python-version: "3.11"
 
       - name: Install afterburner
-        run: pip install git+https://github.com/TylerDOC1776/dcs-afterburner@master
+        run: pip install git+https://github.com/IT-Dev-Group-6/dcs-afterburner@master
 
       - name: Find changed .miz files
         id: changed
