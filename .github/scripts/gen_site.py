@@ -10,7 +10,15 @@ WEB_DIR = os.path.join(REPO_ROOT, "web")
 REPORTS_DIR = os.path.join(WEB_DIR, "reports")
 RAW_BASE = "https://github.com/IT-Dev-Group-6/goon-drop-point/raw/main"
 
-FOLDERS = ["Chops", "Dropshot", "uploads"]
+SKIP_DIRS = {".git", ".github", "pictures", "web"}
+
+
+def discover_folders():
+    entries = sorted(
+        e for e in os.listdir(REPO_ROOT)
+        if os.path.isdir(os.path.join(REPO_ROOT, e)) and e not in SKIP_DIRS
+    )
+    return entries
 
 FONTS = (
     "https://fonts.googleapis.com/css2?"
@@ -281,8 +289,9 @@ def main():
     os.makedirs(REPORTS_DIR, exist_ok=True)
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
 
+    folders = discover_folders()
     missions = {}
-    for folder in FOLDERS:
+    for folder in folders:
         folder_path = os.path.join(REPO_ROOT, folder)
         if not os.path.isdir(folder_path):
             missions[folder] = []
@@ -308,7 +317,7 @@ def main():
                 f.write(report_page)
 
     sections_html = ""
-    for folder in FOLDERS:
+    for folder in folders:
         files = missions.get(folder, [])
         if not files:
             items_html = f'    <p class="empty">// NO MISSIONS</p>'
