@@ -228,6 +228,9 @@ def bench_markdown(data):
     ]
     cpu_series = [("cpu %", [row.get("cpu_pct") for row in cpu_rows], "#fab387")]
     mem_series = [("mem MB", [row.get("mem_mb") for row in cpu_rows], "#cba6f7")]
+    no_cpu_samples = (
+        '<div style="padding:16px;color:#a6adc8">No CPU samples captured.</div>'
+    )
 
     charts = "\n".join(
         [
@@ -236,11 +239,11 @@ def bench_markdown(data):
             f'<div style="background:#181825;border:1px solid #313244;border-radius:6px;padding:12px;">{render_svg("Active Groups / Units", bench_labels, load_series)}</div>',
             (
                 f'<div style="background:#181825;border:1px solid #313244;border-radius:6px;padding:12px;">'
-                f'{render_svg("CPU %", cpu_labels, cpu_series) if cpu_rows else "<div style=\"padding:16px;color:#a6adc8\">No CPU samples captured.</div>"}</div>'
+                f'{render_svg("CPU %", cpu_labels, cpu_series) if cpu_rows else no_cpu_samples}</div>'
             ),
             (
                 f'<div style="background:#181825;border:1px solid #313244;border-radius:6px;padding:12px;">'
-                f'{render_svg("Memory (MB)", cpu_labels, mem_series) if cpu_rows else "<div style=\"padding:16px;color:#a6adc8\">No CPU samples captured.</div>"}</div>'
+                f'{render_svg("Memory (MB)", cpu_labels, mem_series) if cpu_rows else no_cpu_samples}</div>'
             ),
             "</div>",
         ]
