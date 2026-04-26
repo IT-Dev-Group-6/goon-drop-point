@@ -47,17 +47,17 @@ Latest matching orchestrator run for this mission.
 
 | Metric | Value |
 | --- | --- |
-| Run ID | [`brun_628c72815c20`](https://goon.gsquad.cc/api/v1/bench/runs/brun_628c72815c20) |
+| Run ID | [`brun_518e5abf998e`](https://goon.gsquad.cc/api/v1/bench/runs/brun_518e5abf998e) |
 | Mission loaded | `Nevada_Proving_Groundss_5c.miz` |
-| Started | 2026-04-26T06:08:00.006955+00:00 |
-| Duration | 296s |
-| Mission samples | 59 |
-| CPU samples | 0 |
-| Groups | 57 -> 65 (max 65) |
-| Units | 446 -> 527 (max 527) |
-| CPU | avg n/a, max n/a |
-| Memory | n/a (max n/a) |
-| Threads max | n/a |
+| Started | 2026-04-26T17:22:23.519454+00:00 |
+| Duration | 1811s |
+| Mission samples | 362 |
+| CPU samples | 359 |
+| Groups | 57 -> 67 (max 67) |
+| Units | 446 -> 566 (max 566) |
+| CPU | avg 1.1%, max 1.5% |
+| Memory | 3737.4 MB -> 975.2 MB (max 3817.9 MB) |
+| Threads max | 41 |
 | Runtime findings | 2 |
 
 <!-- bench-runtime-end -->
