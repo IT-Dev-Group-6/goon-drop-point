@@ -1,56 +1,324 @@
-# DCS Afterburner Report: Afganistan2D
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Afganistan2D // Benchmark Report</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+  :root {
+    --base: #1e1e2e;
+    --mantle: #181825;
+    --crust: #11111b;
+    --surface0: #313244;
+    --surface1: #45475a;
+    --surface2: #585b70;
+    --overlay0: #6c7086;
+    --overlay1: #7f849c;
+    --text: #cdd6f4;
+    --subtext0: #a6adc8;
+    --subtext1: #bac2de;
+    --blue: #89b4fa;
+    --green: #a6e3a1;
+    --red: #f38ba8;
+    --yellow: #f9e2af;
+    --peach: #fab387;
+    --mauve: #cba6f7;
+    --teal: #94e2d5;
+    --sky: #89dceb;
+  }
 
-**Source:** `Afganistan2D.miz`  
-**Hash:** `sha256:d1f2ddeb4825cb1032b5e1aa912145fc89af9bbaa40f7684d919eb4fc3e81857`  
-**Theatre:** Afghanistan  
-**Risk:** 92/100 — LOW
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { min-height: 100%; background: var(--crust); }
+  body {
+    font-family: 'Fira Code', 'JetBrains Mono', 'Cascadia Code', monospace;
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 16px 48px;
+    min-height: 100vh;
+    background: var(--crust);
+    gap: 20px;
+  }
 
-## Mission Summary
+  .window {
+    width: 100%;
+    max-width: 1320px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 24px 80px rgba(0,0,0,.7);
+  }
+  .titlebar {
+    background: var(--mantle);
+    padding: 11px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid var(--surface0);
+    user-select: none;
+  }
+  .win-controls { display: flex; gap: 7px; }
+  .wc { width: 12px; height: 12px; border-radius: 50%; }
+  .wc-close  { background: #f38ba8; }
+  .wc-min    { background: #f9e2af; }
+  .wc-max    { background: #a6e3a1; }
+  .win-title { flex: 1; text-align: center; font-size: 12px; color: var(--overlay0); }
 
-| Metric | Value |
-|--------|-------|
-| Total units | 956 |
-| Active at start | 145 |
-| Late activation | 811 |
-| Player slots | 6 |
-| Groups (total) | 165 |
-| Active groups | 26 |
-| Static objects | 102 |
-| Triggers | 39 |
-| Trigger zones | 78 |
+  .panel {
+    background: var(--base);
+    padding: 20px 24px;
+  }
+  .subtitle {
+    color: var(--overlay1);
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--blue);
+    margin-bottom: 4px;
+  }
 
-## Findings
+  .section-title {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--overlay1);
+    margin: 16px 0 8px;
+  }
 
-### 🟡 `PERF_001` — CTLD script detected
+  .corner-box, .chart-box, .mission-card, .report-shell {
+    background: var(--mantle);
+    border: 1px solid var(--surface0);
+    border-radius: 6px;
+  }
+  .corner-box { padding: 14px; }
+  .mission-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .mission-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 16px;
+    cursor: default;
+  }
+  .mission-item:hover { border-color: var(--blue); }
+  .mission-name { color: var(--text); flex: 1; font-weight: 700; }
+  .mission-size { color: var(--teal); font-size: 12px; white-space: nowrap; }
+  .mission-links { display: flex; gap: 8px; }
+  .mission-links a {
+    color: var(--blue);
+    text-decoration: none;
+    border: 1px solid var(--surface1);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+  }
+  .mission-links a:hover { border-color: var(--blue); background: rgba(137,180,250,0.08); }
+  .empty { color: var(--overlay0); font-size: 12px; padding: 12px 0; }
+  .folder-grid { display: flex; flex-direction: column; gap: 14px; }
 
-**Severity:** warning  
-**Confidence:** 100%  
+  .back-link {
+    background: none;
+    border: 1px solid var(--surface1);
+    border-radius: 4px;
+    color: var(--subtext0);
+    padding: 4px 10px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 12px;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 14px;
+  }
+  .back-link:hover { border-color: var(--blue); color: var(--blue); }
 
-CTLD detected in mission scripts. checkHoverStatus and checkAIStatus poll every 1–2s over all registered transport pilots — a steady CPU cost at scale.
-
-**Fix:** Reduce the number of CTLD-registered transport pilot names, or consider switching to a version of CTLD with event-driven hooks instead of polling.
-
+  .report-body h1, .report-body h2, .report-body h3 {
+    font-weight: 700;
+    color: var(--blue);
+    margin: 18px 0 8px;
+  }
+  .report-body h1 { font-size: 16px; }
+  .report-body h2 { font-size: 14px; }
+  .report-body h3 { font-size: 13px; color: var(--text); }
+  .report-body p { margin-bottom: 10px; }
+  .report-body ul, .report-body ol { margin: 0.5rem 0 0.75rem 1.5rem; }
+  .report-body code {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.85em;
+    background: rgba(137,180,250,0.06);
+    padding: 0.1em 0.3em;
+    border: 1px solid var(--surface0);
+  }
+  .report-body pre {
+    background: var(--crust);
+    border: 1px solid var(--surface0);
+    padding: 1rem;
+    overflow-x: auto;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+  }
+  .report-body pre code { background: none; border: none; padding: 0; font-size: 0.82rem; }
+  .report-body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+  .report-body th {
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    color: var(--blue);
+    border-bottom: 1px solid var(--surface1);
+    padding: 0.4rem 0.6rem;
+    text-align: left;
+    background: rgba(137,180,250,0.04);
+  }
+  .report-body td {
+    padding: 0.4rem 0.6rem;
+    border-bottom: 1px solid var(--surface0);
+  }
+  .report-grid { display: flex; flex-direction: column; gap: 14px; }
+  .report-meta { color: var(--overlay1); font-size: 12px; }
+</style>
+</head>
+<body>
+  <div class="window">
+    <div class="titlebar">
+      <div class="win-controls">
+        <div class="wc wc-close"></div>
+        <div class="wc wc-min"></div>
+        <div class="wc wc-max"></div>
+      </div>
+      <div class="win-title">goon-drop-point — benchmark report</div>
+    </div>
+    <div class="panel">
+      <a class="back-link" href="../index.html">← back</a>
+      <div class="report-shell">
+        <div class="report-body"><h1>DCS Afterburner Report: Afganistan2D</h1>
+<p><strong>Source:</strong> <code>Afganistan2D.miz</code><br />
+<strong>Hash:</strong> <code>sha256:d1f2ddeb4825cb1032b5e1aa912145fc89af9bbaa40f7684d919eb4fc3e81857</code><br />
+<strong>Theatre:</strong> Afghanistan<br />
+<strong>Risk:</strong> 92/100 — LOW</p>
+<h2>Mission Summary</h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Total units</td>
+<td>956</td>
+</tr>
+<tr>
+<td>Active at start</td>
+<td>145</td>
+</tr>
+<tr>
+<td>Late activation</td>
+<td>811</td>
+</tr>
+<tr>
+<td>Player slots</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Groups (total)</td>
+<td>165</td>
+</tr>
+<tr>
+<td>Active groups</td>
+<td>26</td>
+</tr>
+<tr>
+<td>Static objects</td>
+<td>102</td>
+</tr>
+<tr>
+<td>Triggers</td>
+<td>39</td>
+</tr>
+<tr>
+<td>Trigger zones</td>
+<td>78</td>
+</tr>
+</tbody>
+</table>
+<h2>Findings</h2>
+<h3>🟡 <code>PERF_001</code> — CTLD script detected</h3>
+<p><strong>Severity:</strong> warning<br />
+<strong>Confidence:</strong> 100%  </p>
+<p>CTLD detected in mission scripts. checkHoverStatus and checkAIStatus poll every 1–2s over all registered transport pilots — a steady CPU cost at scale.</p>
+<p><strong>Fix:</strong> Reduce the number of CTLD-registered transport pilot names, or consider switching to a version of CTLD with event-driven hooks instead of polling.</p>
 <!-- bench-runtime-start -->
 
-## Runtime Bench Result
-
-Latest matching orchestrator run for this mission.
-
-| Metric | Value |
-| --- | --- |
-| Run ID | [`brun_dbcc9d0f5b5c`](https://goon.gsquad.cc/api/v1/bench/runs/brun_dbcc9d0f5b5c) |
-| Mission loaded | `Afganistan2D.miz` |
-| Started | 2026-04-26T16:13:29.732149+00:00 |
-| Duration | 1801s |
-| Mission samples | 360 |
-| CPU samples | 359 |
-| Groups | 159 -> 252 (max 252) |
-| Units | 950 -> 1635 (max 1635) |
-| CPU | avg 2.9%, max 3.9% |
-| Memory | 11414.5 MB -> 3491.4 MB (max 12121.0 MB) |
-| Threads max | 45 |
-| Runtime findings | 1 |
-
+<h2>Runtime Bench Result</h2>
+<p>Latest matching orchestrator run for this mission.</p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Run ID</td>
+<td><a href="https://goon.gsquad.cc/api/v1/bench/runs/brun_dbcc9d0f5b5c"><code>brun_dbcc9d0f5b5c</code></a></td>
+</tr>
+<tr>
+<td>Mission loaded</td>
+<td><code>Afganistan2D.miz</code></td>
+</tr>
+<tr>
+<td>Started</td>
+<td>2026-04-26T16:13:29.732149+00:00</td>
+</tr>
+<tr>
+<td>Duration</td>
+<td>1801s</td>
+</tr>
+<tr>
+<td>Mission samples</td>
+<td>360</td>
+</tr>
+<tr>
+<td>CPU samples</td>
+<td>359</td>
+</tr>
+<tr>
+<td>Groups</td>
+<td>159 -&gt; 252 (max 252)</td>
+</tr>
+<tr>
+<td>Units</td>
+<td>950 -&gt; 1635 (max 1635)</td>
+</tr>
+<tr>
+<td>CPU</td>
+<td>avg 2.9%, max 3.9%</td>
+</tr>
+<tr>
+<td>Memory</td>
+<td>11414.5 MB -&gt; 3491.4 MB (max 12121.0 MB)</td>
+</tr>
+<tr>
+<td>Threads max</td>
+<td>45</td>
+</tr>
+<tr>
+<td>Runtime findings</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:10px 0 18px;">
 <div style="background:#181825;border:1px solid #313244;border-radius:6px;padding:12px;"><svg viewBox="0 0 900 240" width="100%" height="240" preserveAspectRatio="none" role="img" aria-label="Scheduler Drift (s)">
 <rect x="0" y="0" width="900" height="240" rx="6" fill="#181825"/>
@@ -218,4 +486,9 @@ Latest matching orchestrator run for this mission.
 </svg></div>
 </div>
 
-<!-- bench-runtime-end -->
+<!-- bench-runtime-end --></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

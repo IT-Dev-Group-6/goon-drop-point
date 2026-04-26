@@ -1,65 +1,329 @@
-# DCS Afterburner Report: Nevada_Proving_Groundss_5c
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nevada_Proving_Groundss_5c // Benchmark Report</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+  :root {
+    --base: #1e1e2e;
+    --mantle: #181825;
+    --crust: #11111b;
+    --surface0: #313244;
+    --surface1: #45475a;
+    --surface2: #585b70;
+    --overlay0: #6c7086;
+    --overlay1: #7f849c;
+    --text: #cdd6f4;
+    --subtext0: #a6adc8;
+    --subtext1: #bac2de;
+    --blue: #89b4fa;
+    --green: #a6e3a1;
+    --red: #f38ba8;
+    --yellow: #f9e2af;
+    --peach: #fab387;
+    --mauve: #cba6f7;
+    --teal: #94e2d5;
+    --sky: #89dceb;
+  }
 
-**Source:** `Nevada_Proving_Groundss_5c.miz`  
-**Hash:** `sha256:784dc9f66e11ed478b62e5b6070e785a3e6189fd8ea8aa9d98ac39319d5ad148`  
-**Theatre:** Nevada  
-**Risk:** 84/100 — MODERATE
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { min-height: 100%; background: var(--crust); }
+  body {
+    font-family: 'Fira Code', 'JetBrains Mono', 'Cascadia Code', monospace;
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 16px 48px;
+    min-height: 100vh;
+    background: var(--crust);
+    gap: 20px;
+  }
 
-## Mission Summary
+  .window {
+    width: 100%;
+    max-width: 1320px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 24px 80px rgba(0,0,0,.7);
+  }
+  .titlebar {
+    background: var(--mantle);
+    padding: 11px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid var(--surface0);
+    user-select: none;
+  }
+  .win-controls { display: flex; gap: 7px; }
+  .wc { width: 12px; height: 12px; border-radius: 50%; }
+  .wc-close  { background: #f38ba8; }
+  .wc-min    { background: #f9e2af; }
+  .wc-max    { background: #a6e3a1; }
+  .win-title { flex: 1; text-align: center; font-size: 12px; color: var(--overlay0); }
 
-| Metric | Value |
-|--------|-------|
-| Total units | 481 |
-| Active at start | 90 |
-| Late activation | 391 |
-| Player slots | 35 |
-| Groups (total) | 68 |
-| Active groups | 20 |
-| Static objects | 41 |
-| Triggers | 17 |
-| Trigger zones | 37 |
+  .panel {
+    background: var(--base);
+    padding: 20px 24px;
+  }
+  .subtitle {
+    color: var(--overlay1);
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--blue);
+    margin-bottom: 4px;
+  }
 
-## Findings
+  .section-title {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--overlay1);
+    margin: 16px 0 8px;
+  }
 
-### 🟡 `PERF_001` — CTLD script detected
+  .corner-box, .chart-box, .mission-card, .report-shell {
+    background: var(--mantle);
+    border: 1px solid var(--surface0);
+    border-radius: 6px;
+  }
+  .corner-box { padding: 14px; }
+  .mission-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .mission-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 16px;
+    cursor: default;
+  }
+  .mission-item:hover { border-color: var(--blue); }
+  .mission-name { color: var(--text); flex: 1; font-weight: 700; }
+  .mission-size { color: var(--teal); font-size: 12px; white-space: nowrap; }
+  .mission-links { display: flex; gap: 8px; }
+  .mission-links a {
+    color: var(--blue);
+    text-decoration: none;
+    border: 1px solid var(--surface1);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+  }
+  .mission-links a:hover { border-color: var(--blue); background: rgba(137,180,250,0.08); }
+  .empty { color: var(--overlay0); font-size: 12px; padding: 12px 0; }
+  .folder-grid { display: flex; flex-direction: column; gap: 14px; }
 
-**Severity:** warning  
-**Confidence:** 100%  
+  .back-link {
+    background: none;
+    border: 1px solid var(--surface1);
+    border-radius: 4px;
+    color: var(--subtext0);
+    padding: 4px 10px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 12px;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 14px;
+  }
+  .back-link:hover { border-color: var(--blue); color: var(--blue); }
 
-CTLD detected in mission scripts. checkHoverStatus and checkAIStatus poll every 1–2s over all registered transport pilots — a steady CPU cost at scale.
-
-**Fix:** Reduce the number of CTLD-registered transport pilot names, or consider switching to a version of CTLD with event-driven hooks instead of polling.
-
-### 🟡 `SCPT_001` — High script line count
-
-**Severity:** warning  
-**Confidence:** 100%  
-
-7,854 non-blank lines of mission-specific Lua (frameworks excluded): OpForAC.lua (6,091), Jtac_Zeus.lua (1,008), flight_message.lua (331), PlaygroundMenuNelis2.lua (188), arty_strike.lua (188), NellisGroundSpawns.lua (48). Threshold: warning >5,000, critical >15,000.
-
-**Fix:** Audit script files for dead code, commented-out blocks, or redundant copies of frameworks. Consider stripping/minifying large libraries before packing into the .miz. Remove scripts that are loaded but not used.
-
+  .report-body h1, .report-body h2, .report-body h3 {
+    font-weight: 700;
+    color: var(--blue);
+    margin: 18px 0 8px;
+  }
+  .report-body h1 { font-size: 16px; }
+  .report-body h2 { font-size: 14px; }
+  .report-body h3 { font-size: 13px; color: var(--text); }
+  .report-body p { margin-bottom: 10px; }
+  .report-body ul, .report-body ol { margin: 0.5rem 0 0.75rem 1.5rem; }
+  .report-body code {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.85em;
+    background: rgba(137,180,250,0.06);
+    padding: 0.1em 0.3em;
+    border: 1px solid var(--surface0);
+  }
+  .report-body pre {
+    background: var(--crust);
+    border: 1px solid var(--surface0);
+    padding: 1rem;
+    overflow-x: auto;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+  }
+  .report-body pre code { background: none; border: none; padding: 0; font-size: 0.82rem; }
+  .report-body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+  .report-body th {
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    color: var(--blue);
+    border-bottom: 1px solid var(--surface1);
+    padding: 0.4rem 0.6rem;
+    text-align: left;
+    background: rgba(137,180,250,0.04);
+  }
+  .report-body td {
+    padding: 0.4rem 0.6rem;
+    border-bottom: 1px solid var(--surface0);
+  }
+  .report-grid { display: flex; flex-direction: column; gap: 14px; }
+  .report-meta { color: var(--overlay1); font-size: 12px; }
+</style>
+</head>
+<body>
+  <div class="window">
+    <div class="titlebar">
+      <div class="win-controls">
+        <div class="wc wc-close"></div>
+        <div class="wc wc-min"></div>
+        <div class="wc wc-max"></div>
+      </div>
+      <div class="win-title">goon-drop-point — benchmark report</div>
+    </div>
+    <div class="panel">
+      <a class="back-link" href="../index.html">← back</a>
+      <div class="report-shell">
+        <div class="report-body"><h1>DCS Afterburner Report: Nevada_Proving_Groundss_5c</h1>
+<p><strong>Source:</strong> <code>Nevada_Proving_Groundss_5c.miz</code><br />
+<strong>Hash:</strong> <code>sha256:784dc9f66e11ed478b62e5b6070e785a3e6189fd8ea8aa9d98ac39319d5ad148</code><br />
+<strong>Theatre:</strong> Nevada<br />
+<strong>Risk:</strong> 84/100 — MODERATE</p>
+<h2>Mission Summary</h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Total units</td>
+<td>481</td>
+</tr>
+<tr>
+<td>Active at start</td>
+<td>90</td>
+</tr>
+<tr>
+<td>Late activation</td>
+<td>391</td>
+</tr>
+<tr>
+<td>Player slots</td>
+<td>35</td>
+</tr>
+<tr>
+<td>Groups (total)</td>
+<td>68</td>
+</tr>
+<tr>
+<td>Active groups</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Static objects</td>
+<td>41</td>
+</tr>
+<tr>
+<td>Triggers</td>
+<td>17</td>
+</tr>
+<tr>
+<td>Trigger zones</td>
+<td>37</td>
+</tr>
+</tbody>
+</table>
+<h2>Findings</h2>
+<h3>🟡 <code>PERF_001</code> — CTLD script detected</h3>
+<p><strong>Severity:</strong> warning<br />
+<strong>Confidence:</strong> 100%  </p>
+<p>CTLD detected in mission scripts. checkHoverStatus and checkAIStatus poll every 1–2s over all registered transport pilots — a steady CPU cost at scale.</p>
+<p><strong>Fix:</strong> Reduce the number of CTLD-registered transport pilot names, or consider switching to a version of CTLD with event-driven hooks instead of polling.</p>
+<h3>🟡 <code>SCPT_001</code> — High script line count</h3>
+<p><strong>Severity:</strong> warning<br />
+<strong>Confidence:</strong> 100%  </p>
+<p>7,854 non-blank lines of mission-specific Lua (frameworks excluded): OpForAC.lua (6,091), Jtac_Zeus.lua (1,008), flight_message.lua (331), PlaygroundMenuNelis2.lua (188), arty_strike.lua (188), NellisGroundSpawns.lua (48). Threshold: warning &gt;5,000, critical &gt;15,000.</p>
+<p><strong>Fix:</strong> Audit script files for dead code, commented-out blocks, or redundant copies of frameworks. Consider stripping/minifying large libraries before packing into the .miz. Remove scripts that are loaded but not used.</p>
 <!-- bench-runtime-start -->
 
-## Runtime Bench Result
-
-Latest matching orchestrator run for this mission.
-
-| Metric | Value |
-| --- | --- |
-| Run ID | [`brun_518e5abf998e`](https://goon.gsquad.cc/api/v1/bench/runs/brun_518e5abf998e) |
-| Mission loaded | `Nevada_Proving_Groundss_5c.miz` |
-| Started | 2026-04-26T17:22:23.519454+00:00 |
-| Duration | 1811s |
-| Mission samples | 362 |
-| CPU samples | 359 |
-| Groups | 57 -> 67 (max 67) |
-| Units | 446 -> 566 (max 566) |
-| CPU | avg 1.1%, max 1.5% |
-| Memory | 3737.4 MB -> 975.2 MB (max 3817.9 MB) |
-| Threads max | 41 |
-| Runtime findings | 2 |
-
+<h2>Runtime Bench Result</h2>
+<p>Latest matching orchestrator run for this mission.</p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Run ID</td>
+<td><a href="https://goon.gsquad.cc/api/v1/bench/runs/brun_518e5abf998e"><code>brun_518e5abf998e</code></a></td>
+</tr>
+<tr>
+<td>Mission loaded</td>
+<td><code>Nevada_Proving_Groundss_5c.miz</code></td>
+</tr>
+<tr>
+<td>Started</td>
+<td>2026-04-26T17:22:23.519454+00:00</td>
+</tr>
+<tr>
+<td>Duration</td>
+<td>1811s</td>
+</tr>
+<tr>
+<td>Mission samples</td>
+<td>362</td>
+</tr>
+<tr>
+<td>CPU samples</td>
+<td>359</td>
+</tr>
+<tr>
+<td>Groups</td>
+<td>57 -&gt; 67 (max 67)</td>
+</tr>
+<tr>
+<td>Units</td>
+<td>446 -&gt; 566 (max 566)</td>
+</tr>
+<tr>
+<td>CPU</td>
+<td>avg 1.1%, max 1.5%</td>
+</tr>
+<tr>
+<td>Memory</td>
+<td>3737.4 MB -&gt; 975.2 MB (max 3817.9 MB)</td>
+</tr>
+<tr>
+<td>Threads max</td>
+<td>41</td>
+</tr>
+<tr>
+<td>Runtime findings</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:10px 0 18px;">
 <div style="background:#181825;border:1px solid #313244;border-radius:6px;padding:12px;"><svg viewBox="0 0 900 240" width="100%" height="240" preserveAspectRatio="none" role="img" aria-label="Scheduler Drift (s)">
 <rect x="0" y="0" width="900" height="240" rx="6" fill="#181825"/>
@@ -227,4 +491,9 @@ Latest matching orchestrator run for this mission.
 </svg></div>
 </div>
 
-<!-- bench-runtime-end -->
+<!-- bench-runtime-end --></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

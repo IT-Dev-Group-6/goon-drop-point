@@ -1,32 +1,12 @@
-import glob
-import os
-from datetime import datetime, timezone
-
-import markdown
-
-REPO_ROOT = os.getcwd()
-WEB_DIR = os.path.join(REPO_ROOT, "web")
-REPORTS_DIR = os.path.join(WEB_DIR, "reports")
-REPORTS_SRC = os.path.join(REPO_ROOT, "reports")
-RAW_BASE = "https://github.com/IT-Dev-Group-6/goon-drop-point/raw/main"
-
-SKIP_DIRS = {".git", ".github", "pictures", "web", "reports", "Testing"}
-
-
-def discover_folders():
-    entries = sorted(
-        e for e in os.listdir(REPO_ROOT)
-        if os.path.isdir(os.path.join(REPO_ROOT, e)) and e not in SKIP_DIRS
-    )
-    return entries
-
-FONTS = (
-    "https://fonts.googleapis.com/css2?"
-    "family=Fira+Code:wght@400;700"
-    "&display=swap"
-)
-
-CSS = """
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vietguam3D6.2.0 // Benchmark Report</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+  <style>
   :root {
     --base: #1e1e2e;
     --mantle: #181825;
@@ -204,51 +184,7 @@ CSS = """
   }
   .report-grid { display: flex; flex-direction: column; gap: 14px; }
   .report-meta { color: var(--overlay1); font-size: 12px; }
-"""
-
-INDEX_TMPL = """\
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IT-Dev-Group-6 // Mission Drop Point</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="{fonts}" rel="stylesheet">
-  <style>{css}</style>
-</head>
-<body>
-  <div class="window">
-    <div class="titlebar">
-      <div class="win-controls">
-        <div class="wc wc-close"></div>
-        <div class="wc wc-min"></div>
-        <div class="wc wc-max"></div>
-      </div>
-      <div class="win-title">goon-drop-point — mission files</div>
-    </div>
-    <div class="panel">
-      <h1>Mission Files</h1>
-      <div class="subtitle">Shared drop point for DCS World .miz mission files used by IT-Dev-Group-6.</div>
-      <div class="folder-grid">
-{sections}
-      </div>
-    </div>
-  </div>
-</body>
-</html>
-"""
-
-REPORT_TMPL = """\
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{title} // Benchmark Report</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="{fonts}" rel="stylesheet">
-  <style>{css}</style>
+</style>
 </head>
 <body>
   <div class="window">
@@ -263,102 +199,156 @@ REPORT_TMPL = """\
     <div class="panel">
       <a class="back-link" href="../index.html">← back</a>
       <div class="report-shell">
-        <div class="report-body">{content}</div>
+        <div class="report-body"><h1>DCS Afterburner Report: Vietguam3D6.2.0</h1>
+<p><strong>Source:</strong> <code>Vietguam3D6.2.0.miz</code><br />
+<strong>Hash:</strong> <code>sha256:3c2e9eb70ac1a0399dbe56ef5e3b5e74f7ffc34a85c8d785b89909de9d9b2e9f</code><br />
+<strong>Theatre:</strong> MarianaIslands<br />
+<strong>Risk:</strong> 66/100 — HIGH</p>
+<h2>Mission Summary</h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Total units</td>
+<td>1635</td>
+</tr>
+<tr>
+<td>Active at start</td>
+<td>452</td>
+</tr>
+<tr>
+<td>Late activation</td>
+<td>1183</td>
+</tr>
+<tr>
+<td>Player slots</td>
+<td>70</td>
+</tr>
+<tr>
+<td>Groups (total)</td>
+<td>262</td>
+</tr>
+<tr>
+<td>Active groups</td>
+<td>142</td>
+</tr>
+<tr>
+<td>Static objects</td>
+<td>107</td>
+</tr>
+<tr>
+<td>Triggers</td>
+<td>72</td>
+</tr>
+<tr>
+<td>Trigger zones</td>
+<td>256</td>
+</tr>
+</tbody>
+</table>
+<h2>Findings</h2>
+<h3>🟡 <code>BLOT_001</code> — High active unit count</h3>
+<p><strong>Severity:</strong> warning<br />
+<strong>Confidence:</strong> 100%  </p>
+<p>452 units active at mission start (threshold: 350). May cause performance issues on lower-end servers.</p>
+<p><strong>Fix:</strong> Consider late-activating groups that spawn later in the mission.</p>
+<h3>🟡 <code>BLOT_008</code> — Very high total unit count</h3>
+<p><strong>Severity:</strong> warning<br />
+<strong>Confidence:</strong> 100%  </p>
+<p>1635 total units in mission (threshold: 1200). Even late-activated units consume memory.</p>
+<p><strong>Fix:</strong> Audit late-activation groups and remove units not used by the mission flow.</p>
+<h3>🟡 <code>BLOT_004</code> — High trigger zone count</h3>
+<p><strong>Severity:</strong> warning<br />
+<strong>Confidence:</strong> 100%  </p>
+<p>256 trigger zones (threshold: 90). Zones used in triggers are evaluated every frame.</p>
+<p><strong>Fix:</strong> Remove unused zones or merge overlapping zones.</p>
+<h3>🟡 <code>PERF_001</code> — CTLD script detected</h3>
+<p><strong>Severity:</strong> warning<br />
+<strong>Confidence:</strong> 100%  </p>
+<p>CTLD detected in mission scripts. checkHoverStatus and checkAIStatus poll every 1–2s over all registered transport pilots — a steady CPU cost at scale.</p>
+<p><strong>Fix:</strong> Reduce the number of CTLD-registered transport pilot names, or consider switching to a version of CTLD with event-driven hooks instead of polling.</p>
+<h3>🔵 <code>PERF_002</code> — CSAR script detected</h3>
+<p><strong>Severity:</strong> info<br />
+<strong>Confidence:</strong> 100%  </p>
+<p>CSAR detected in mission scripts. Timer accumulation (N helis × M wounded groups) can grow on long sessions with many active rescues.</p>
+<p><strong>Fix:</strong> Monitor timer count on long sessions. If issues arise, restart the mission periodically or use a CSAR version that cleans up completed timers.</p>
+<!-- bench-runtime-start -->
+
+<h2>Runtime Bench Result</h2>
+<p>Latest matching orchestrator run for this mission.</p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Run ID</td>
+<td><a href="https://goon.gsquad.cc/api/v1/bench/runs/brun_0451253c2814"><code>brun_0451253c2814</code></a></td>
+</tr>
+<tr>
+<td>Mission loaded</td>
+<td><code>Vietguam3D6.2.0.miz</code></td>
+</tr>
+<tr>
+<td>Started</td>
+<td>2026-04-26T14:13:58.009910+00:00</td>
+</tr>
+<tr>
+<td>Duration</td>
+<td>311s</td>
+</tr>
+<tr>
+<td>Mission samples</td>
+<td>62</td>
+</tr>
+<tr>
+<td>CPU samples</td>
+<td>59</td>
+</tr>
+<tr>
+<td>Groups</td>
+<td>192 -&gt; 201 (max 201)</td>
+</tr>
+<tr>
+<td>Units</td>
+<td>1565 -&gt; 1626 (max 1626)</td>
+</tr>
+<tr>
+<td>CPU</td>
+<td>avg 3.6%, max 6.8%</td>
+</tr>
+<tr>
+<td>Memory</td>
+<td>4950.0 MB -&gt; 5253.3 MB (max 5661.2 MB)</td>
+</tr>
+<tr>
+<td>Threads max</td>
+<td>45</td>
+</tr>
+<tr>
+<td>Runtime findings</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:10px 0 18px;">
+<div style="background:#181825;border:1px solid #313244;border-radius:6px;padding:12px;"><div style="padding:16px;color:#a6adc8;background:#181825;border:1px solid #313244;border-radius:6px">No data available for Scheduler Drift (s).</div></div>
+<div style="background:#181825;border:1px solid #313244;border-radius:6px;padding:12px;"><div style="padding:16px;color:#a6adc8;background:#181825;border:1px solid #313244;border-radius:6px">No data available for Active Groups / Units.</div></div>
+<div style="background:#181825;border:1px solid #313244;border-radius:6px;padding:12px;"><div style="padding:16px;color:#a6adc8">No CPU samples captured.</div></div>
+<div style="background:#181825;border:1px solid #313244;border-radius:6px;padding:12px;"><div style="padding:16px;color:#a6adc8">No CPU samples captured.</div></div>
+</div>
+
+<!-- bench-runtime-end --></div>
       </div>
     </div>
   </div>
 </body>
 </html>
-"""
-
-
-def fmt_size(n):
-    if n >= 1_048_576:
-        return f"{n / 1_048_576:.1f} MB"
-    return f"{n / 1024:.0f} KB"
-
-
-def run_report(stem):
-    md_path = os.path.join(REPORTS_SRC, f"{stem}.md")
-    if os.path.exists(md_path):
-        with open(md_path) as f:
-            return f.read()
-    return f"# {stem}\n\nNo benchmark report available yet."
-
-
-def main():
-    os.makedirs(REPORTS_DIR, exist_ok=True)
-    now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
-
-    folders = discover_folders()
-    missions = {}
-    for folder in folders:
-        folder_path = os.path.join(REPO_ROOT, folder)
-        if not os.path.isdir(folder_path):
-            missions[folder] = []
-            continue
-        files = sorted(glob.glob(os.path.join(folder_path, "*.miz")))
-        missions[folder] = [(f, os.path.getsize(f)) for f in files]
-
-    for folder, files in missions.items():
-        for miz_path, _ in files:
-            stem = os.path.splitext(os.path.basename(miz_path))[0]
-            print(f"Reporting {miz_path}...")
-            md = run_report(stem)
-            html_content = markdown.markdown(md, extensions=["fenced_code", "tables"])
-            report_page = (
-                REPORT_TMPL
-                .replace("{title}", stem)
-                .replace("{fonts}", FONTS)
-                .replace("{css}", CSS)
-                .replace("{content}", html_content)
-                .replace("{generated}", now)
-            )
-            with open(os.path.join(REPORTS_DIR, f"{stem}.html"), "w") as f:
-                f.write(report_page)
-
-    sections_html = ""
-    for folder in folders:
-        files = missions.get(folder, [])
-        if not files:
-            items_html = f'    <p class="empty">// NO MISSIONS</p>'
-        else:
-            items = []
-            for miz_path, size in files:
-                stem = os.path.splitext(os.path.basename(miz_path))[0]
-                rel = os.path.relpath(miz_path, REPO_ROOT).replace(os.sep, "/")
-                dl_url = f"{RAW_BASE}/{rel}"
-                rpt_url = f"reports/{stem}.html"
-                items.append(
-                    f'      <div class="mission-item mission-card">'
-                    f'<span class="mission-name">{stem}.miz</span>'
-                    f'<span class="mission-size">{fmt_size(size)}</span>'
-                    f'<span class="mission-links">'
-                    f'<a href="{dl_url}">download</a>'
-                    f'<a href="{rpt_url}">report</a>'
-                    f"</span></div>"
-                )
-            items_html = "      <div class=\"mission-list\">\n" + "\n".join(items) + "\n      </div>"
-
-        sections_html += (
-            f'    <section class="corner-box">\n'
-            f'      <div class="section-title">{folder.upper()}</div>\n'
-            f"{items_html}\n"
-            f"    </section>\n"
-        )
-
-    index_html = (
-        INDEX_TMPL
-        .replace("{fonts}", FONTS)
-        .replace("{css}", CSS)
-        .replace("{sections}", sections_html)
-        .replace("{generated}", now)
-    )
-    with open(os.path.join(WEB_DIR, "index.html"), "w") as f:
-        f.write(index_html)
-
-    print(f"Site generated in {WEB_DIR}/")
-
-
-if __name__ == "__main__":
-    main()
