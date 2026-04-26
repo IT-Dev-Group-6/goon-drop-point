@@ -30,11 +30,14 @@ jobs:
             afterburner report "$miz" --format md > "reports/${STEM}.md"
           done
 
+      - name: Fetch bench results
+        run: python .github/scripts/fetch_bench_results.py
+
       - name: Commit reports
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add reports/
+          git add reports/ bench-results/
           git diff --staged --quiet && echo "No changes to commit." || git commit -m "chore: refresh all benchmark reports"
           git push
 

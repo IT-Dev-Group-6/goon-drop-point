@@ -22,9 +22,14 @@
 !.github/workflows/*.yml
 !.github/scripts/
 !.github/scripts/*.py
+!.github/ISSUE_TEMPLATE/
+!.github/ISSUE_TEMPLATE/*.md
 !reports/
 !reports/.gitkeep
 !reports/*.md
+!bench-results/
+!bench-results/.gitkeep
+!bench-results/*.json
 !web/
 !web/index.html
 !web/reports/

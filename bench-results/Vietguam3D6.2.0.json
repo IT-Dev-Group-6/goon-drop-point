@@ -1,0 +1,66 @@
+{
+  "bench": {
+    "drift_avg_s": 0.0,
+    "drift_max_s": 0.0,
+    "elapsed_end_s": 311.8,
+    "elapsed_start_s": 6.8,
+    "groups_end": 201,
+    "groups_max": 201,
+    "groups_start": 192,
+    "samples": 62,
+    "units_end": 1626,
+    "units_max": 1626,
+    "units_start": 1565
+  },
+  "cpu": {
+    "cpu_avg_pct": 3.57,
+    "cpu_max_pct": 6.85,
+    "elapsed_end_s": 295.3,
+    "elapsed_start_s": 5.0,
+    "mem_end_mb": 5253.3,
+    "mem_max_mb": 5661.2,
+    "mem_start_mb": 4950.0,
+    "samples": 59,
+    "threads_max": 45
+  },
+  "created_at": "2026-04-26T14:13:58.545217+00:00",
+  "duration_s": 311,
+  "ended_at": "2026-04-26T14:13:58.009910+00:00",
+  "findings": {
+    "count": 5,
+    "items": [
+      {
+        "detail": "452 units active at mission start (threshold: 350). May cause performance issues on lower-end servers.",
+        "rule_id": "BLOT_001",
+        "severity": "warning"
+      },
+      {
+        "detail": "1635 total units in mission (threshold: 1200). Even late-activated units consume memory.",
+        "rule_id": "BLOT_008",
+        "severity": "warning"
+      },
+      {
+        "detail": "256 trigger zones (threshold: 90). Zones used in triggers are evaluated every frame.",
+        "rule_id": "BLOT_004",
+        "severity": "warning"
+      },
+      {
+        "detail": "CTLD detected in mission scripts. checkHoverStatus and checkAIStatus poll every 1\u20132s over all registered transport pilots \u2014 a steady CPU cost at scale.",
+        "rule_id": "PERF_001",
+        "severity": "warning"
+      },
+      {
+        "detail": "CSAR detected in mission scripts. Timer accumulation (N helis \u00d7 M wounded groups) can grow on long sessions with many active rescues.",
+        "rule_id": "PERF_002",
+        "severity": "info"
+      }
+    ]
+  },
+  "host_id": "host_1ad3930ed744",
+  "mission": "Vietguam3D6.2.0__bench_bq_e694687d8d5a",
+  "mission_stem": "Vietguam3D6.2.0",
+  "run_id": "brun_0451253c2814",
+  "schema_version": 1,
+  "source_url": "https://goon.gsquad.cc/api/v1/bench/runs/brun_0451253c2814",
+  "started_at": "2026-04-26T14:13:58.009910+00:00"
+}

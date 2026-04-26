@@ -58,3 +58,29 @@ Once merged, your file will appear on the [mission index page](https://it-dev-gr
 - Drop files in `uploads/` — they'll be moved to the right folder after review
 - Don't rename `.miz` files after sharing them — scripts may reference filenames directly
 - `.miz` files are ZIP archives containing Lua — open with any ZIP tool or the DCS Mission Editor
+
+---
+
+## Queue a runtime benchmark
+
+Open a new issue using the **Benchmark mission file** template. The issue must have the `benchmark` label and list one or more `.miz` paths or direct download URLs.
+
+Example:
+
+```md
+## Mission file(s)
+
+- `uploads/MyMission.miz`
+- `Dropshot/Vietguam3D6.2.0.miz`
+```
+
+When the issue is opened, edited, or labeled with `benchmark`, GitHub Actions will upload each listed mission to the benchmark queue.
+
+New `.miz` files merged into `main` also create a `benchmark` issue automatically and queue the new mission file(s).
+
+Repository setup required:
+
+- Secret `DCS_BENCH_API_KEY`: orchestrator API key used to create queue items
+- Variable `BENCH_HOST_ID`: defaults to `host_1ad3930ed744`
+- Variable `BENCH_INSTANCE_ID`: defaults to `DCS-TexasBBQ`
+- Variable `BENCH_DURATION_S`: defaults to `1800` seconds / 30 minutes
