@@ -166,7 +166,9 @@ def render_svg(title, labels, series_defs, height=240):
 
         # Fill area for a stronger dashboard look.
         baseline = pad_top + plot_h
-        fill_points = [f"{points[0].split(",")[0]},{baseline:.1f}"] + points + [f"{points[-1].split(",")[0]},{baseline:.1f}"]
+        first_x = points[0].split(",")[0]
+        last_x = points[-1].split(",")[0]
+        fill_points = [f"{first_x},{baseline:.1f}"] + points + [f"{last_x},{baseline:.1f}"]
         svg.append(
             f'<polygon fill="{color}" fill-opacity="0.14" points="{" ".join(fill_points)}"/>'
         )
