@@ -1,0 +1,28 @@
+name: Benchmark Issue Status
+
+on:
+  schedule:
+    # 07:02 Eastern during daylight saving time. GitHub cron is UTC.
+    - cron: "2 11 * * *"
+  workflow_dispatch:
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  status:
+    name: Comment benchmark issue status
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Comment benchmark status
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BENCH_API_KEY: ${{ secrets.DCS_BENCH_API_KEY }}
+        run: python .github/scripts/comment_benchmark_status.py
