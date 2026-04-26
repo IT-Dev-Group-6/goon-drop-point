@@ -39,3 +39,25 @@ CTLD detected in mission scripts. checkHoverStatus and checkAIStatus poll every 
 
 **Fix:** Audit script files for dead code, commented-out blocks, or redundant copies of frameworks. Consider stripping/minifying large libraries before packing into the .miz. Remove scripts that are loaded but not used.
 
+<!-- bench-runtime-start -->
+
+## Runtime Bench Result
+
+Latest matching orchestrator run for this mission.
+
+| Metric | Value |
+| --- | --- |
+| Run ID | [`brun_628c72815c20`](https://goon.gsquad.cc/api/v1/bench/runs/brun_628c72815c20) |
+| Mission loaded | `Nevada_Proving_Groundss_5c.miz` |
+| Started | 2026-04-26T06:08:00.006955+00:00 |
+| Duration | 296s |
+| Mission samples | 59 |
+| CPU samples | 0 |
+| Groups | 57 -> 65 (max 65) |
+| Units | 446 -> 527 (max 527) |
+| CPU | avg n/a, max n/a |
+| Memory | n/a (max n/a) |
+| Threads max | n/a |
+| Runtime findings | 2 |
+
+<!-- bench-runtime-end -->

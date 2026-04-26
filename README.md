@@ -80,6 +80,8 @@ New `.miz` files merged into `main` also create a `benchmark` issue automaticall
 
 The queue comment lists the generated queue IDs and the expected run window. Benchmarks usually run overnight, roughly 02:00-07:00 Eastern the next morning. A scheduled GitHub Action checks open `benchmark` issues every morning at 07:02 Eastern and comments with the latest queue/run status.
 
+The report refresh workflow only regenerates mission reports that have matching bench JSON, then merges the runtime bench summary into the mission Markdown before rebuilding the site. The bench matcher strips the `__bench_bq_...` suffix from queue mission names, so the queue filename can differ from the repo filename without breaking the report merge.
+
 Repository setup required:
 
 - Secret `DCS_BENCH_API_KEY`: orchestrator API key used to create queue items
