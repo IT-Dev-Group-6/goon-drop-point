@@ -153,6 +153,15 @@ def queue_file(path):
 def write_summary(results, errors):
     lines = ["## Benchmark Queue Request", ""]
     if results:
+        lines.extend(
+            [
+                "The mission file(s) below were added to the benchmark queue.",
+                "",
+                "Expected run window: roughly 02:00-07:00 Eastern the next morning.",
+                "A scheduled status check posts benchmark results back here every morning at 07:02 Eastern.",
+                "",
+            ]
+        )
         lines.extend(["Queued mission file(s):", ""])
         for result in results:
             item = result["item"]

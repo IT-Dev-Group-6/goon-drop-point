@@ -78,6 +78,8 @@ When the issue is opened, edited, or labeled with `benchmark`, GitHub Actions wi
 
 New `.miz` files merged into `main` also create a `benchmark` issue automatically and queue the new mission file(s).
 
+The queue comment lists the generated queue IDs and the expected run window. Benchmarks usually run overnight, roughly 02:00-07:00 Eastern the next morning. A scheduled GitHub Action checks open `benchmark` issues every morning at 07:02 Eastern and comments with the latest queue/run status.
+
 Repository setup required:
 
 - Secret `DCS_BENCH_API_KEY`: orchestrator API key used to create queue items
