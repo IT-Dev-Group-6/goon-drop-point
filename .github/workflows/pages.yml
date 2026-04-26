@@ -28,9 +28,6 @@ jobs:
       - name: Install dependencies
         run: pip install markdown
 
-      - name: Fetch bench results
-        run: python .github/scripts/fetch_bench_results.py
-
       - name: Generate site
         run: python .github/scripts/gen_site.py
 

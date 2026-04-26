@@ -66,3 +66,25 @@ CSAR detected in mission scripts. Timer accumulation (N helis × M wounded group
 
 **Fix:** Monitor timer count on long sessions. If issues arise, restart the mission periodically or use a CSAR version that cleans up completed timers.
 
+<!-- bench-runtime-start -->
+
+## Runtime Bench Result
+
+Latest matching orchestrator run for this mission.
+
+| Metric | Value |
+| --- | --- |
+| Run ID | [`brun_0451253c2814`](https://goon.gsquad.cc/api/v1/bench/runs/brun_0451253c2814) |
+| Mission loaded | `Vietguam3D6.2.0.miz` |
+| Started | 2026-04-26T14:13:58.009910+00:00 |
+| Duration | 311s |
+| Mission samples | 62 |
+| CPU samples | 59 |
+| Groups | 192 -> 201 (max 201) |
+| Units | 1565 -> 1626 (max 1626) |
+| CPU | avg 3.6%, max 6.8% |
+| Memory | 4950.0 MB -> 5253.3 MB (max 5661.2 MB) |
+| Threads max | 45 |
+| Runtime findings | 5 |
+
+<!-- bench-runtime-end -->
