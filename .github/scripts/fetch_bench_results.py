@@ -75,6 +75,8 @@ def summarize(run):
         "ended_at": run.get("ended_at"),
         "created_at": run.get("created_at"),
         "duration_s": run.get("duration_s"),
+        "bench_timeseries": bench,
+        "cpu_timeseries": cpu,
         "bench": {
             "samples": len(bench),
             "elapsed_start_s": first_value(bench, "elapsed_s"),

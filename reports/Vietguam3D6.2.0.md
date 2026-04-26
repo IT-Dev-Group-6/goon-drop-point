@@ -87,4 +87,11 @@ Latest matching orchestrator run for this mission.
 | Threads max | 45 |
 | Runtime findings | 5 |
 
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:10px 0 18px;">
+<div style="background:#181825;border:1px solid #313244;border-radius:6px;padding:12px;"><div style="padding:16px;color:#a6adc8;background:#181825;border:1px solid #313244;border-radius:6px">No data available for Scheduler Drift (s).</div></div>
+<div style="background:#181825;border:1px solid #313244;border-radius:6px;padding:12px;"><div style="padding:16px;color:#a6adc8;background:#181825;border:1px solid #313244;border-radius:6px">No data available for Active Groups / Units.</div></div>
+<div style="background:#181825;border:1px solid #313244;border-radius:6px;padding:12px;"><div style="padding:16px;color:#a6adc8">No CPU samples captured.</div></div>
+<div style="background:#181825;border:1px solid #313244;border-radius:6px;padding:12px;"><div style="padding:16px;color:#a6adc8">No CPU samples captured.</div></div>
+</div>
+
 <!-- bench-runtime-end -->
