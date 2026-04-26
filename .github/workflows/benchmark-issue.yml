@@ -1,0 +1,51 @@
+name: Queue Benchmarks From Issue
+
+on:
+  issues:
+    types: [opened, edited, labeled]
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  queue:
+    name: Queue requested benchmark
+    if: contains(github.event.issue.labels.*.name, 'benchmark')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Queue mission file(s)
+        id: queue
+        continue-on-error: true
+        env:
+          BENCH_API_KEY: ${{ secrets.DCS_BENCH_API_KEY }}
+          BENCH_HOST_ID: ${{ vars.BENCH_HOST_ID || 'host_1ad3930ed744' }}
+          BENCH_INSTANCE_ID: ${{ vars.BENCH_INSTANCE_ID || 'DCS-TexasBBQ' }}
+          BENCH_DURATION_S: ${{ vars.BENCH_DURATION_S || '1800' }}
+        run: python .github/scripts/queue_benchmarks.py --issue-event "$GITHUB_EVENT_PATH"
+
+      - name: Comment with queue result
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const body = fs.existsSync('bench-queue-summary.md')
+              ? fs.readFileSync('bench-queue-summary.md', 'utf8')
+              : 'Benchmark queue request did not produce a summary.';
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body
+            });
+
+      - name: Fail if queue failed
+        if: steps.queue.outcome == 'failure'
+        run: exit 1

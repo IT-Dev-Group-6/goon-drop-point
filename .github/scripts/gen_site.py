@@ -1,4 +1,5 @@
 import glob
+import json
 import os
 from datetime import datetime, timezone
 
@@ -8,6 +9,7 @@ REPO_ROOT = os.getcwd()
 WEB_DIR = os.path.join(REPO_ROOT, "web")
 REPORTS_DIR = os.path.join(WEB_DIR, "reports")
 REPORTS_SRC = os.path.join(REPO_ROOT, "reports")
+BENCH_RESULTS_SRC = os.path.join(REPO_ROOT, "bench-results")
 RAW_BASE = "https://github.com/IT-Dev-Group-6/goon-drop-point/raw/main"
 
 SKIP_DIRS = {".git", ".github", "pictures", "web", "reports", "Testing"}
@@ -282,6 +284,80 @@ def run_report(stem):
     return f"# {stem}\n\nNo benchmark report available yet."
 
 
+def load_bench_result(stem):
+    json_path = os.path.join(BENCH_RESULTS_SRC, f"{stem}.json")
+    if not os.path.exists(json_path):
+        return None
+    with open(json_path) as f:
+        return json.load(f)
+
+
+def fmt_num(value, suffix="", digits=1):
+    if value is None:
+        return "n/a"
+    if isinstance(value, float):
+        return f"{value:.{digits}f}{suffix}"
+    return f"{value}{suffix}"
+
+
+def fmt_range(start, end, suffix="", digits=1):
+    if start is None and end is None:
+        return "n/a"
+    return f"{fmt_num(start, suffix, digits)} -> {fmt_num(end, suffix, digits)}"
+
+
+def bench_markdown(stem):
+    data = load_bench_result(stem)
+    if not data:
+        return ""
+
+    bench = data.get("bench") or {}
+    cpu = data.get("cpu") or {}
+    findings = data.get("findings") or {}
+    mission = data.get("mission") or stem
+    source_url = data.get("source_url") or ""
+    run_id = data.get("run_id") or "n/a"
+
+    rows = [
+        ("Run ID", f"[`{run_id}`]({source_url})" if source_url else f"`{run_id}`"),
+        ("Mission loaded", f"`{mission}.miz`" if not mission.endswith(".miz") else f"`{mission}`"),
+        ("Started", data.get("started_at") or data.get("created_at") or "n/a"),
+        ("Duration", fmt_num(data.get("duration_s"), "s", 0)),
+        ("Mission samples", fmt_num(bench.get("samples"), "", 0)),
+        ("CPU samples", fmt_num(cpu.get("samples"), "", 0)),
+        (
+            "Groups",
+            f"{fmt_range(bench.get('groups_start'), bench.get('groups_end'), '', 0)}"
+            f" (max {fmt_num(bench.get('groups_max'), '', 0)})",
+        ),
+        (
+            "Units",
+            f"{fmt_range(bench.get('units_start'), bench.get('units_end'), '', 0)}"
+            f" (max {fmt_num(bench.get('units_max'), '', 0)})",
+        ),
+        (
+            "CPU",
+            f"avg {fmt_num(cpu.get('cpu_avg_pct'), '%')}, max {fmt_num(cpu.get('cpu_max_pct'), '%')}",
+        ),
+        (
+            "Memory",
+            f"{fmt_range(cpu.get('mem_start_mb'), cpu.get('mem_end_mb'), ' MB')}"
+            f" (max {fmt_num(cpu.get('mem_max_mb'), ' MB')})",
+        ),
+        ("Threads max", fmt_num(cpu.get("threads_max"), "", 0)),
+        ("Runtime findings", fmt_num(findings.get("count"), "", 0)),
+    ]
+
+    table = "\n".join(f"| {name} | {value} |" for name, value in rows)
+    return (
+        "\n\n## Runtime Bench Result\n\n"
+        "Latest matching orchestrator run for this mission.\n\n"
+        "| Metric | Value |\n"
+        "| --- | --- |\n"
+        f"{table}\n"
+    )
+
+
 def main():
     os.makedirs(REPORTS_DIR, exist_ok=True)
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
@@ -300,7 +376,7 @@ def main():
         for miz_path, _ in files:
             stem = os.path.splitext(os.path.basename(miz_path))[0]
             print(f"Reporting {miz_path}...")
-            md = run_report(stem)
+            md = run_report(stem) + bench_markdown(stem)
             html_content = markdown.markdown(md, extensions=["fenced_code", "tables"])
             report_page = (
                 REPORT_TMPL

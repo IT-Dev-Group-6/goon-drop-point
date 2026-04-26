@@ -1,0 +1,118 @@
+name: Queue Benchmarks For New Missions
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "**/*.miz"
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  queue:
+    name: Create benchmark issue and queue
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Find new mission files
+        id: changed
+        run: |
+          if git cat-file -e "${{ github.event.before }}^{commit}" 2>/dev/null; then
+            git diff --name-only --diff-filter=A "${{ github.event.before }}" "${{ github.sha }}" -- '*.miz' > /tmp/new-miz.txt
+          else
+            git ls-files '*.miz' > /tmp/new-miz.txt
+          fi
+          cat /tmp/new-miz.txt
+          if [ -s /tmp/new-miz.txt ]; then
+            echo "has_files=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_files=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Ensure benchmark label exists
+        if: steps.changed.outputs.has_files == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            try {
+              await github.rest.issues.getLabel({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                name: 'benchmark'
+              });
+            } catch (error) {
+              if (error.status !== 404) throw error;
+              await github.rest.issues.createLabel({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                name: 'benchmark',
+                color: '00c8ff',
+                description: 'Queue this issue for DCS mission benchmarking'
+              });
+            }
+
+      - name: Open benchmark issue
+        id: issue
+        if: steps.changed.outputs.has_files == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const files = fs.readFileSync('/tmp/new-miz.txt', 'utf8')
+              .split(/\r?\n/)
+              .filter(Boolean);
+            const body = [
+              'New mission file(s) were merged and should be benchmarked:',
+              '',
+              ...files.map(file => `- \`${file}\``),
+              '',
+              `Commit: ${context.sha}`
+            ].join('\n');
+            const issue = await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `Benchmark new mission file${files.length === 1 ? '' : 's'}`,
+              labels: ['benchmark'],
+              body
+            });
+            core.setOutput('number', issue.data.number);
+
+      - name: Queue mission file(s)
+        id: queue
+        if: steps.changed.outputs.has_files == 'true'
+        continue-on-error: true
+        env:
+          BENCH_API_KEY: ${{ secrets.DCS_BENCH_API_KEY }}
+          BENCH_HOST_ID: ${{ vars.BENCH_HOST_ID || 'host_1ad3930ed744' }}
+          BENCH_INSTANCE_ID: ${{ vars.BENCH_INSTANCE_ID || 'DCS-TexasBBQ' }}
+          BENCH_DURATION_S: ${{ vars.BENCH_DURATION_S || '1800' }}
+        run: python .github/scripts/queue_benchmarks.py --files-from /tmp/new-miz.txt
+
+      - name: Comment with queue result
+        if: steps.changed.outputs.has_files == 'true' && always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const body = fs.existsSync('bench-queue-summary.md')
+              ? fs.readFileSync('bench-queue-summary.md', 'utf8')
+              : 'Benchmark queue request did not produce a summary.';
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: Number('${{ steps.issue.outputs.number }}'),
+              body
+            });
+
+      - name: Fail if queue failed
+        if: steps.changed.outputs.has_files == 'true' && steps.queue.outcome == 'failure'
+        run: exit 1
