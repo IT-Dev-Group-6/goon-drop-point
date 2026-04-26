@@ -1,0 +1,46 @@
+{
+  "bench": {
+    "drift_avg_s": 0.0,
+    "drift_max_s": 0.0,
+    "elapsed_end_s": 1801.8,
+    "elapsed_start_s": 6.8,
+    "groups_end": 252,
+    "groups_max": 252,
+    "groups_start": 159,
+    "samples": 360,
+    "units_end": 1635,
+    "units_max": 1635,
+    "units_start": 950
+  },
+  "cpu": {
+    "cpu_avg_pct": 2.86,
+    "cpu_max_pct": 3.88,
+    "elapsed_end_s": 1796.8,
+    "elapsed_start_s": 5.0,
+    "mem_end_mb": 3491.4,
+    "mem_max_mb": 12121.0,
+    "mem_start_mb": 11414.5,
+    "samples": 359,
+    "threads_max": 45
+  },
+  "created_at": "2026-04-26T16:13:30.310247+00:00",
+  "duration_s": 1801,
+  "ended_at": "2026-04-26T16:13:29.732149+00:00",
+  "findings": {
+    "count": 1,
+    "items": [
+      {
+        "detail": "CTLD detected in mission scripts. checkHoverStatus and checkAIStatus poll every 1\u20132s over all registered transport pilots \u2014 a steady CPU cost at scale.",
+        "rule_id": "PERF_001",
+        "severity": "warning"
+      }
+    ]
+  },
+  "host_id": "host_1ad3930ed744",
+  "mission": "Afganistan2D__bench_bq_e2d9f841ec03",
+  "mission_stem": "Afganistan2D",
+  "run_id": "brun_dbcc9d0f5b5c",
+  "schema_version": 1,
+  "source_url": "https://goon.gsquad.cc/api/v1/bench/runs/brun_dbcc9d0f5b5c",
+  "started_at": "2026-04-26T16:13:29.732149+00:00"
+}
