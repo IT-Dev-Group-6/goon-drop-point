@@ -24,9 +24,7 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies
-        run: |
-          pip install markdown
-          pip install git+https://github.com/IT-Dev-Group-6/dcs-afterburner@master
+        run: pip install markdown
 
       - name: Fetch bench results
         run: python .github/scripts/fetch_bench_results.py
