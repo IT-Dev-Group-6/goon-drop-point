@@ -167,6 +167,13 @@ CSS = """
   .report-body h3 { font-size: 13px; color: var(--text); }
   .report-body p { margin-bottom: 10px; }
   .report-body ul, .report-body ol { margin: 0.5rem 0 0.75rem 1.5rem; }
+  .report-body a,
+  .report-body a:visited {
+    color: var(--sky);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .report-body a:hover { color: var(--teal); }
   .report-body code {
     font-family: 'Fira Code', monospace;
     font-size: 0.85em;

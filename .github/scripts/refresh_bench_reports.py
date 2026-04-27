@@ -2,7 +2,6 @@
 import json
 import html
 import re
-import subprocess
 from pathlib import Path
 from statistics import mean
 
@@ -21,16 +20,6 @@ def load_bench_results():
         with path.open() as f:
             results[path.stem] = json.load(f)
     return results
-
-
-def repo_miz_by_stem():
-    mapping = {}
-    skip_parts = {".git", ".github", "pictures", "web"}
-    for path in REPO_ROOT.rglob("*.miz"):
-        if any(part in skip_parts for part in path.parts):
-            continue
-        mapping.setdefault(path.stem, path)
-    return mapping
 
 
 def values(rows, key):
@@ -282,7 +271,6 @@ def merge_markdown(existing, bench_section):
 def main():
     REPORTS_DIR.mkdir(exist_ok=True)
     benches = load_bench_results()
-    miz_by_stem = repo_miz_by_stem()
 
     if not benches:
         print("No bench results to merge.")
@@ -290,19 +278,10 @@ def main():
 
     processed = 0
     for stem, data in benches.items():
-        miz_path = miz_by_stem.get(stem)
-        if not miz_path:
-            print(f"Skipping {stem}: no matching .miz in repo")
-            continue
-
         report_path = REPORTS_DIR / f"{stem}.md"
-        with report_path.open("w") as out:
-            subprocess.run(
-                ["afterburner", "report", str(miz_path), "--format", "md"],
-                check=True,
-                stdout=out,
-                text=True,
-            )
+        if not report_path.exists():
+            print(f"Skipping {stem}: no existing report markdown")
+            continue
 
         existing = report_path.read_text()
         report_path.write_text(merge_markdown(existing, bench_markdown(data)))
