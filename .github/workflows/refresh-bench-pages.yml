@@ -1,0 +1,62 @@
+name: Refresh Bench Pages
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: refresh-bench-pages
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    name: Refresh reports and build pages
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install markdown
+          pip install git+https://github.com/IT-Dev-Group-6/dcs-afterburner@master
+
+      - name: Fetch bench results
+        run: python .github/scripts/fetch_bench_results.py
+
+      - name: Regenerate reports with bench data
+        run: python .github/scripts/refresh_bench_reports.py
+
+      - name: Commit refreshed reports
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add reports/ bench-results/
+          git diff --staged --quiet && echo "No report changes to commit." || git commit -m "chore: refresh benchmark pages"
+          git pull --rebase origin main
+          git push
+
+      - name: Generate pages
+        run: python .github/scripts/gen_site.py
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: web/
+
+  deploy:
+    name: Deploy Pages
+    needs: refresh
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
