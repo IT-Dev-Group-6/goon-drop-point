@@ -16,7 +16,7 @@ API_KEY = os.environ.get("BENCH_API_KEY", "").strip()
 HOST_ID = os.environ.get("BENCH_HOST_ID", "host_1ad3930ed744").strip()
 INSTANCE_ID = os.environ.get("BENCH_INSTANCE_ID", "DCS-TexasBBQ").strip()
 DURATION_S = os.environ.get("BENCH_DURATION_S", "1800").strip()
-RUN_NOW = os.environ.get("BENCH_RUN_NOW", "1").lower() not in {"0", "false", "no"}
+RUN_NOW = os.environ.get("BENCH_RUN_NOW", "0").lower() not in {"0", "false", "no"}
 SUMMARY_PATH = os.environ.get("BENCH_QUEUE_SUMMARY", "bench-queue-summary.md")
 
 MIZ_REF_RE = re.compile(r"(?P<ref>(?:https?://[^\s)>\]\"']+|[\w./@%+ -]+?\.miz))", re.IGNORECASE)
