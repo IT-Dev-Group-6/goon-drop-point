@@ -1,6 +1,9 @@
 name: Refresh All Reports
 
 on:
+  schedule:
+    # 07:02 Eastern during daylight saving time. GitHub cron is UTC.
+    - cron: "2 11 * * *"
   workflow_dispatch:
 
 permissions:
