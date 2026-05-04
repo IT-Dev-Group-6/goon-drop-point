@@ -21,6 +21,17 @@ jobs:
       - name: Install afterburner
         run: pip install git+https://github.com/IT-Dev-Group-6/dcs-afterburner@master
 
+      - name: Generate reports for missions without one
+        run: |
+          mkdir -p reports
+          find . -name "*.miz" -not -path "./.git/*" | while read f; do
+            STEM=$(basename "$f" .miz)
+            if [ ! -f "reports/${STEM}.md" ]; then
+              echo "Generating report for $STEM"
+              afterburner report "$f" --format md > "reports/${STEM}.md"
+            fi
+          done
+
       - name: Fetch bench results
         run: python .github/scripts/fetch_bench_results.py
 
