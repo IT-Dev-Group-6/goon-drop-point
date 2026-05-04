@@ -279,14 +279,11 @@ def main():
     processed = 0
     for stem, data in benches.items():
         report_path = REPORTS_DIR / f"{stem}.md"
-        if not report_path.exists():
-            print(f"Skipping {stem}: no existing report markdown")
-            continue
-
-        existing = report_path.read_text()
+        existing = report_path.read_text() if report_path.exists() else ""
+        action = "Created" if not existing else "Updated"
         report_path.write_text(merge_markdown(existing, bench_markdown(data)))
         processed += 1
-        print(f"Updated {report_path}")
+        print(f"{action} {report_path}")
 
     print(f"Updated {processed} report(s).")
     return 0
