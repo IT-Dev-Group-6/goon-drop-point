@@ -1,0 +1,2208 @@
+{
+  "bench": {
+    "drift_avg_s": null,
+    "drift_max_s": null,
+    "elapsed_end_s": null,
+    "elapsed_start_s": null,
+    "groups_end": null,
+    "groups_max": null,
+    "groups_start": null,
+    "samples": 0,
+    "units_end": null,
+    "units_max": null,
+    "units_start": null
+  },
+  "bench_timeseries": [],
+  "cpu": {
+    "cpu_avg_pct": 0.61,
+    "cpu_max_pct": 0.82,
+    "elapsed_end_s": 1797.1,
+    "elapsed_start_s": 5.0,
+    "mem_end_mb": 135.7,
+    "mem_max_mb": 1088.4,
+    "mem_start_mb": 1088.4,
+    "samples": 359,
+    "threads_max": 35
+  },
+  "cpu_timeseries": [
+    {
+      "cpu_pct": 0.59,
+      "elapsed_s": 5.0,
+      "mem_mb": 1088.4,
+      "threads": 35
+    },
+    {
+      "cpu_pct": 0.72,
+      "elapsed_s": 10.0,
+      "mem_mb": 1088.3,
+      "threads": 35
+    },
+    {
+      "cpu_pct": 0.66,
+      "elapsed_s": 15.0,
+      "mem_mb": 1088.3,
+      "threads": 35
+    },
+    {
+      "cpu_pct": 0.41,
+      "elapsed_s": 20.0,
+      "mem_mb": 1088.3,
+      "threads": 35
+    },
+    {
+      "cpu_pct": 0.62,
+      "elapsed_s": 25.0,
+      "mem_mb": 1088.2,
+      "threads": 35
+    },
+    {
+      "cpu_pct": 0.54,
+      "elapsed_s": 30.0,
+      "mem_mb": 1088.2,
+      "threads": 35
+    },
+    {
+      "cpu_pct": 0.68,
+      "elapsed_s": 35.0,
+      "mem_mb": 1088.2,
+      "threads": 35
+    },
+    {
+      "cpu_pct": 0.72,
+      "elapsed_s": 40.0,
+      "mem_mb": 1088.2,
+      "threads": 35
+    },
+    {
+      "cpu_pct": 0.62,
+      "elapsed_s": 45.0,
+      "mem_mb": 1088.2,
+      "threads": 35
+    },
+    {
+      "cpu_pct": 0.64,
+      "elapsed_s": 50.1,
+      "mem_mb": 1088.2,
+      "threads": 35
+    },
+    {
+      "cpu_pct": 0.51,
+      "elapsed_s": 55.1,
+      "mem_mb": 1088.2,
+      "threads": 35
+    },
+    {
+      "cpu_pct": 0.62,
+      "elapsed_s": 60.1,
+      "mem_mb": 1088.2,
+      "threads": 35
+    },
+    {
+      "cpu_pct": 0.62,
+      "elapsed_s": 65.1,
+      "mem_mb": 1088.2,
+      "threads": 35
+    },
+    {
+      "cpu_pct": 0.61,
+      "elapsed_s": 70.1,
+      "mem_mb": 1075.5,
+      "threads": 35
+    },
+    {
+      "cpu_pct": 0.7,
+      "elapsed_s": 75.1,
+      "mem_mb": 1038.9,
+      "threads": 35
+    },
+    {
+      "cpu_pct": 0.68,
+      "elapsed_s": 80.1,
+      "mem_mb": 991.6,
+      "threads": 33
+    },
+    {
+      "cpu_pct": 0.7,
+      "elapsed_s": 85.1,
+      "mem_mb": 943.4,
+      "threads": 33
+    },
+    {
+      "cpu_pct": 0.26,
+      "elapsed_s": 90.1,
+      "mem_mb": 897.5,
+      "threads": 33
+    },
+    {
+      "cpu_pct": 0.68,
+      "elapsed_s": 95.1,
+      "mem_mb": 853.9,
+      "threads": 33
+    },
+    {
+      "cpu_pct": 0.74,
+      "elapsed_s": 100.1,
+      "mem_mb": 812.3,
+      "threads": 33
+    },
+    {
+      "cpu_pct": 0.68,
+      "elapsed_s": 105.1,
+      "mem_mb": 772.8,
+      "threads": 33
+    },
+    {
+      "cpu_pct": 0.64,
+      "elapsed_s": 110.1,
+      "mem_mb": 735.2,
+      "threads": 33
+    },
+    {
+      "cpu_pct": 0.66,
+      "elapsed_s": 115.1,
+      "mem_mb": 706.5,
+      "threads": 33
+    },
+    {
+      "cpu_pct": 0.47,
+      "elapsed_s": 120.1,
+      "mem_mb": 672.1,
+      "threads": 33
+    },
+    {
+      "cpu_pct": 0.59,
+      "elapsed_s": 125.1,
+      "mem_mb": 639.4,
+      "threads": 33
+    },
+    {
+      "cpu_pct": 0.59,
+      "elapsed_s": 130.1,
+      "mem_mb": 608.3,
+      "threads": 33
+    },
+    {
+      "cpu_pct": 0.66,
+      "elapsed_s": 135.2,
+      "mem_mb": 578.7,
+      "threads": 33
+    },
+    {
+      "cpu_pct": 0.59,
+      "elapsed_s": 140.2,
+      "mem_mb": 550.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.62,
+      "elapsed_s": 145.2,
+      "mem_mb": 523.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.76,
+      "elapsed_s": 150.2,
+      "mem_mb": 498.3,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.57,
+      "elapsed_s": 155.2,
+      "mem_mb": 474.0,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.68,
+      "elapsed_s": 160.2,
+      "mem_mb": 450.8,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.68,
+      "elapsed_s": 165.2,
+      "mem_mb": 428.8,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.61,
+      "elapsed_s": 170.2,
+      "mem_mb": 407.9,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.74,
+      "elapsed_s": 175.2,
+      "mem_mb": 387.9,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.43,
+      "elapsed_s": 180.2,
+      "mem_mb": 369.0,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.54,
+      "elapsed_s": 185.2,
+      "mem_mb": 354.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.51,
+      "elapsed_s": 190.2,
+      "mem_mb": 337.2,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.41,
+      "elapsed_s": 195.2,
+      "mem_mb": 320.8,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.62,
+      "elapsed_s": 200.2,
+      "mem_mb": 305.1,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.64,
+      "elapsed_s": 205.2,
+      "mem_mb": 290.2,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.68,
+      "elapsed_s": 210.2,
+      "mem_mb": 276.0,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.62,
+      "elapsed_s": 215.2,
+      "mem_mb": 263.2,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.66,
+      "elapsed_s": 220.2,
+      "mem_mb": 250.4,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.61,
+      "elapsed_s": 225.3,
+      "mem_mb": 238.4,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.43,
+      "elapsed_s": 230.3,
+      "mem_mb": 232.8,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.64,
+      "elapsed_s": 235.3,
+      "mem_mb": 232.8,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.7,
+      "elapsed_s": 240.3,
+      "mem_mb": 231.8,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.53,
+      "elapsed_s": 245.3,
+      "mem_mb": 222.6,
+      "threads": 34
+    },
+    {
+      "cpu_pct": 0.62,
+      "elapsed_s": 250.3,
+      "mem_mb": 213.2,
+      "threads": 34
+    },
+    {
+      "cpu_pct": 0.62,
+      "elapsed_s": 255.3,
+      "mem_mb": 205.8,
+      "threads": 34
+    },
+    {
+      "cpu_pct": 0.72,
+      "elapsed_s": 260.3,
+      "mem_mb": 200.8,
+      "threads": 34
+    },
+    {
+      "cpu_pct": 0.54,
+      "elapsed_s": 265.3,
+      "mem_mb": 194.0,
+      "threads": 34
+    },
+    {
+      "cpu_pct": 0.59,
+      "elapsed_s": 270.3,
+      "mem_mb": 185.1,
+      "threads": 34
+    },
+    {
+      "cpu_pct": 0.64,
+      "elapsed_s": 275.3,
+      "mem_mb": 184.4,
+      "threads": 34
+    },
+    {
+      "cpu_pct": 0.76,
+      "elapsed_s": 280.3,
+      "mem_mb": 178.2,
+      "threads": 34
+    },
+    {
+      "cpu_pct": 0.64,
+      "elapsed_s": 285.3,
+      "mem_mb": 171.1,
+      "threads": 34
+    },
+    {
+      "cpu_pct": 0.54,
+      "elapsed_s": 290.3,
+      "mem_mb": 164.1,
+      "threads": 34
+    },
+    {
+      "cpu_pct": 0.54,
+      "elapsed_s": 295.3,
+      "mem_mb": 159.2,
+      "threads": 34
+    },
+    {
+      "cpu_pct": 0.51,
+      "elapsed_s": 300.3,
+      "mem_mb": 153.1,
+      "threads": 34
+    },
+    {
+      "cpu_pct": 0.51,
+      "elapsed_s": 305.3,
+      "mem_mb": 149.0,
+      "threads": 34
+    },
+    {
+      "cpu_pct": 0.68,
+      "elapsed_s": 310.3,
+      "mem_mb": 143.4,
+      "threads": 34
+    },
+    {
+      "cpu_pct": 0.66,
+      "elapsed_s": 315.4,
+      "mem_mb": 139.5,
+      "threads": 34
+    },
+    {
+      "cpu_pct": 0.56,
+      "elapsed_s": 320.4,
+      "mem_mb": 135.4,
+      "threads": 34
+    },
+    {
+      "cpu_pct": 0.61,
+      "elapsed_s": 325.4,
+      "mem_mb": 135.4,
+      "threads": 34
+    },
+    {
+      "cpu_pct": 0.59,
+      "elapsed_s": 330.4,
+      "mem_mb": 134.7,
+      "threads": 35
+    },
+    {
+      "cpu_pct": 0.59,
+      "elapsed_s": 335.4,
+      "mem_mb": 134.7,
+      "threads": 35
+    },
+    {
+      "cpu_pct": 0.64,
+      "elapsed_s": 340.4,
+      "mem_mb": 134.7,
+      "threads": 35
+    },
+    {
+      "cpu_pct": 0.62,
+      "elapsed_s": 345.4,
+      "mem_mb": 134.7,
+      "threads": 35
+    },
+    {
+      "cpu_pct": 0.59,
+      "elapsed_s": 350.4,
+      "mem_mb": 134.7,
+      "threads": 35
+    },
+    {
+      "cpu_pct": 0.64,
+      "elapsed_s": 355.4,
+      "mem_mb": 134.7,
+      "threads": 35
+    },
+    {
+      "cpu_pct": 0.64,
+      "elapsed_s": 360.4,
+      "mem_mb": 134.7,
+      "threads": 35
+    },
+    {
+      "cpu_pct": 0.59,
+      "elapsed_s": 365.4,
+      "mem_mb": 134.7,
+      "threads": 35
+    },
+    {
+      "cpu_pct": 0.47,
+      "elapsed_s": 370.4,
+      "mem_mb": 134.7,
+      "threads": 35
+    },
+    {
+      "cpu_pct": 0.54,
+      "elapsed_s": 375.4,
+      "mem_mb": 134.7,
+      "threads": 35
+    },
+    {
+      "cpu_pct": 0.7,
+      "elapsed_s": 380.4,
+      "mem_mb": 134.7,
+      "threads": 35
+    },
+    {
+      "cpu_pct": 0.61,
+      "elapsed_s": 385.4,
+      "mem_mb": 134.7,
+      "threads": 35
+    },
+    {
+      "cpu_pct": 0.59,
+      "elapsed_s": 390.4,
+      "mem_mb": 134.7,
+      "threads": 35
+    },
+    {
+      "cpu_pct": 0.53,
+      "elapsed_s": 395.5,
+      "mem_mb": 134.7,
+      "threads": 35
+    },
+    {
+      "cpu_pct": 0.53,
+      "elapsed_s": 400.5,
+      "mem_mb": 134.7,
+      "threads": 35
+    },
+    {
+      "cpu_pct": 0.7,
+      "elapsed_s": 405.5,
+      "mem_mb": 134.7,
+      "threads": 35
+    },
+    {
+      "cpu_pct": 0.68,
+      "elapsed_s": 410.5,
+      "mem_mb": 134.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.66,
+      "elapsed_s": 415.5,
+      "mem_mb": 134.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.59,
+      "elapsed_s": 420.5,
+      "mem_mb": 134.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.66,
+      "elapsed_s": 425.5,
+      "mem_mb": 134.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.64,
+      "elapsed_s": 430.5,
+      "mem_mb": 134.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.37,
+      "elapsed_s": 435.5,
+      "mem_mb": 134.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.64,
+      "elapsed_s": 440.5,
+      "mem_mb": 134.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.62,
+      "elapsed_s": 445.5,
+      "mem_mb": 134.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.78,
+      "elapsed_s": 450.5,
+      "mem_mb": 134.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.62,
+      "elapsed_s": 455.5,
+      "mem_mb": 134.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.72,
+      "elapsed_s": 460.5,
+      "mem_mb": 134.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.62,
+      "elapsed_s": 465.5,
+      "mem_mb": 134.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.49,
+      "elapsed_s": 470.5,
+      "mem_mb": 134.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.62,
+      "elapsed_s": 475.5,
+      "mem_mb": 134.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.66,
+      "elapsed_s": 480.6,
+      "mem_mb": 134.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.64,
+      "elapsed_s": 485.6,
+      "mem_mb": 134.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.47,
+      "elapsed_s": 490.6,
+      "mem_mb": 134.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.53,
+      "elapsed_s": 495.6,
+      "mem_mb": 134.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.66,
+      "elapsed_s": 500.6,
+      "mem_mb": 134.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.62,
+      "elapsed_s": 505.6,
+      "mem_mb": 134.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.66,
+      "elapsed_s": 510.6,
+      "mem_mb": 134.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.68,
+      "elapsed_s": 515.6,
+      "mem_mb": 134.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.57,
+      "elapsed_s": 520.6,
+      "mem_mb": 134.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.64,
+      "elapsed_s": 525.6,
+      "mem_mb": 134.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.68,
+      "elapsed_s": 530.6,
+      "mem_mb": 134.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.35,
+      "elapsed_s": 535.6,
+      "mem_mb": 134.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.7,
+      "elapsed_s": 540.6,
+      "mem_mb": 134.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.64,
+      "elapsed_s": 545.6,
+      "mem_mb": 134.7,
+      "threads": 34
+    },
+    {
+      "cpu_pct": 0.68,
+      "elapsed_s": 550.6,
+      "mem_mb": 134.7,
+      "threads": 34
+    },
+    {
+      "cpu_pct": 0.64,
+      "elapsed_s": 555.6,
+      "mem_mb": 134.7,
+      "threads": 34
+    },
+    {
+      "cpu_pct": 0.51,
+      "elapsed_s": 560.6,
+      "mem_mb": 134.7,
+      "threads": 34
+    },
+    {
+      "cpu_pct": 0.7,
+      "elapsed_s": 565.6,
+      "mem_mb": 134.7,
+      "threads": 34
+    },
+    {
+      "cpu_pct": 0.54,
+      "elapsed_s": 570.7,
+      "mem_mb": 134.7,
+      "threads": 34
+    },
+    {
+      "cpu_pct": 0.68,
+      "elapsed_s": 575.7,
+      "mem_mb": 135.3,
+      "threads": 34
+    },
+    {
+      "cpu_pct": 0.56,
+      "elapsed_s": 580.7,
+      "mem_mb": 135.3,
+      "threads": 34
+    },
+    {
+      "cpu_pct": 0.66,
+      "elapsed_s": 585.7,
+      "mem_mb": 135.3,
+      "threads": 34
+    },
+    {
+      "cpu_pct": 0.61,
+      "elapsed_s": 590.7,
+      "mem_mb": 135.3,
+      "threads": 34
+    },
+    {
+      "cpu_pct": 0.61,
+      "elapsed_s": 595.7,
+      "mem_mb": 135.3,
+      "threads": 34
+    },
+    {
+      "cpu_pct": 0.68,
+      "elapsed_s": 600.7,
+      "mem_mb": 135.3,
+      "threads": 34
+    },
+    {
+      "cpu_pct": 0.51,
+      "elapsed_s": 605.7,
+      "mem_mb": 135.3,
+      "threads": 34
+    },
+    {
+      "cpu_pct": 0.74,
+      "elapsed_s": 610.7,
+      "mem_mb": 135.3,
+      "threads": 34
+    },
+    {
+      "cpu_pct": 0.62,
+      "elapsed_s": 615.7,
+      "mem_mb": 135.3,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.57,
+      "elapsed_s": 620.7,
+      "mem_mb": 135.3,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.39,
+      "elapsed_s": 625.7,
+      "mem_mb": 135.3,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.66,
+      "elapsed_s": 630.7,
+      "mem_mb": 135.3,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.64,
+      "elapsed_s": 635.7,
+      "mem_mb": 135.3,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.45,
+      "elapsed_s": 640.7,
+      "mem_mb": 135.3,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.62,
+      "elapsed_s": 645.7,
+      "mem_mb": 135.3,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.64,
+      "elapsed_s": 650.7,
+      "mem_mb": 135.3,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.61,
+      "elapsed_s": 655.7,
+      "mem_mb": 135.3,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.59,
+      "elapsed_s": 660.8,
+      "mem_mb": 135.3,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.64,
+      "elapsed_s": 665.8,
+      "mem_mb": 135.3,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.51,
+      "elapsed_s": 670.8,
+      "mem_mb": 135.3,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.66,
+      "elapsed_s": 675.8,
+      "mem_mb": 135.4,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.61,
+      "elapsed_s": 680.8,
+      "mem_mb": 135.4,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.37,
+      "elapsed_s": 685.8,
+      "mem_mb": 135.4,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.66,
+      "elapsed_s": 690.8,
+      "mem_mb": 135.4,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.62,
+      "elapsed_s": 695.8,
+      "mem_mb": 135.4,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.61,
+      "elapsed_s": 700.8,
+      "mem_mb": 135.4,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.47,
+      "elapsed_s": 705.8,
+      "mem_mb": 135.4,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.62,
+      "elapsed_s": 710.8,
+      "mem_mb": 135.4,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.68,
+      "elapsed_s": 715.8,
+      "mem_mb": 135.4,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.62,
+      "elapsed_s": 720.8,
+      "mem_mb": 135.4,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.57,
+      "elapsed_s": 725.8,
+      "mem_mb": 135.4,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.66,
+      "elapsed_s": 730.8,
+      "mem_mb": 135.4,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.54,
+      "elapsed_s": 735.8,
+      "mem_mb": 135.4,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.45,
+      "elapsed_s": 740.8,
+      "mem_mb": 135.4,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.64,
+      "elapsed_s": 745.9,
+      "mem_mb": 135.4,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.57,
+      "elapsed_s": 750.9,
+      "mem_mb": 135.4,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.64,
+      "elapsed_s": 755.9,
+      "mem_mb": 135.4,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.7,
+      "elapsed_s": 760.9,
+      "mem_mb": 135.4,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.64,
+      "elapsed_s": 765.9,
+      "mem_mb": 135.4,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.64,
+      "elapsed_s": 770.9,
+      "mem_mb": 135.4,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.47,
+      "elapsed_s": 775.9,
+      "mem_mb": 135.4,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.64,
+      "elapsed_s": 780.9,
+      "mem_mb": 135.4,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.74,
+      "elapsed_s": 785.9,
+      "mem_mb": 135.4,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.33,
+      "elapsed_s": 790.9,
+      "mem_mb": 135.4,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.59,
+      "elapsed_s": 795.9,
+      "mem_mb": 135.4,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.74,
+      "elapsed_s": 800.9,
+      "mem_mb": 135.4,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.54,
+      "elapsed_s": 805.9,
+      "mem_mb": 135.4,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.54,
+      "elapsed_s": 810.9,
+      "mem_mb": 135.4,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.51,
+      "elapsed_s": 815.9,
+      "mem_mb": 135.4,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.59,
+      "elapsed_s": 820.9,
+      "mem_mb": 135.4,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.64,
+      "elapsed_s": 825.9,
+      "mem_mb": 135.4,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.66,
+      "elapsed_s": 830.9,
+      "mem_mb": 135.4,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.68,
+      "elapsed_s": 836.0,
+      "mem_mb": 135.4,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.57,
+      "elapsed_s": 841.0,
+      "mem_mb": 135.4,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.57,
+      "elapsed_s": 846.0,
+      "mem_mb": 135.4,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.62,
+      "elapsed_s": 851.0,
+      "mem_mb": 135.4,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.64,
+      "elapsed_s": 856.0,
+      "mem_mb": 135.4,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.57,
+      "elapsed_s": 861.0,
+      "mem_mb": 135.4,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.61,
+      "elapsed_s": 866.0,
+      "mem_mb": 135.4,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.82,
+      "elapsed_s": 871.0,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.51,
+      "elapsed_s": 876.0,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.53,
+      "elapsed_s": 881.0,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.64,
+      "elapsed_s": 886.0,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.62,
+      "elapsed_s": 891.0,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.7,
+      "elapsed_s": 896.0,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.78,
+      "elapsed_s": 901.0,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.74,
+      "elapsed_s": 906.0,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.37,
+      "elapsed_s": 911.0,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.54,
+      "elapsed_s": 916.0,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.62,
+      "elapsed_s": 921.0,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.76,
+      "elapsed_s": 926.1,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.61,
+      "elapsed_s": 931.1,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.64,
+      "elapsed_s": 936.1,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.49,
+      "elapsed_s": 941.1,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.53,
+      "elapsed_s": 946.1,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.7,
+      "elapsed_s": 951.1,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.62,
+      "elapsed_s": 956.1,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.59,
+      "elapsed_s": 961.1,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.64,
+      "elapsed_s": 966.1,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.7,
+      "elapsed_s": 971.1,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.64,
+      "elapsed_s": 976.1,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.53,
+      "elapsed_s": 981.1,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.62,
+      "elapsed_s": 986.1,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.66,
+      "elapsed_s": 991.1,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.66,
+      "elapsed_s": 996.1,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.57,
+      "elapsed_s": 1001.1,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.51,
+      "elapsed_s": 1006.1,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.53,
+      "elapsed_s": 1011.2,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.47,
+      "elapsed_s": 1016.2,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.59,
+      "elapsed_s": 1021.2,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.7,
+      "elapsed_s": 1026.2,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.62,
+      "elapsed_s": 1031.2,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.66,
+      "elapsed_s": 1036.2,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.68,
+      "elapsed_s": 1041.2,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.45,
+      "elapsed_s": 1046.2,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.62,
+      "elapsed_s": 1051.2,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.7,
+      "elapsed_s": 1056.2,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.62,
+      "elapsed_s": 1061.2,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.54,
+      "elapsed_s": 1066.2,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.57,
+      "elapsed_s": 1071.2,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.64,
+      "elapsed_s": 1076.2,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.64,
+      "elapsed_s": 1081.2,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.78,
+      "elapsed_s": 1086.2,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.43,
+      "elapsed_s": 1091.3,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.66,
+      "elapsed_s": 1096.3,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.54,
+      "elapsed_s": 1101.3,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.66,
+      "elapsed_s": 1106.3,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.62,
+      "elapsed_s": 1111.3,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.61,
+      "elapsed_s": 1116.3,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.66,
+      "elapsed_s": 1121.3,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.64,
+      "elapsed_s": 1126.3,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.51,
+      "elapsed_s": 1131.3,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.62,
+      "elapsed_s": 1136.3,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.62,
+      "elapsed_s": 1141.3,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.66,
+      "elapsed_s": 1146.3,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.53,
+      "elapsed_s": 1151.3,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.68,
+      "elapsed_s": 1156.3,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.68,
+      "elapsed_s": 1161.3,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.57,
+      "elapsed_s": 1166.3,
+      "mem_mb": 135.5,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.7,
+      "elapsed_s": 1171.3,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.68,
+      "elapsed_s": 1176.4,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.64,
+      "elapsed_s": 1181.4,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.43,
+      "elapsed_s": 1186.4,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.61,
+      "elapsed_s": 1191.4,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.57,
+      "elapsed_s": 1196.4,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.68,
+      "elapsed_s": 1201.4,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.61,
+      "elapsed_s": 1206.4,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.68,
+      "elapsed_s": 1211.4,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.64,
+      "elapsed_s": 1216.4,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.66,
+      "elapsed_s": 1221.4,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.68,
+      "elapsed_s": 1226.4,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.57,
+      "elapsed_s": 1231.4,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.66,
+      "elapsed_s": 1236.4,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.61,
+      "elapsed_s": 1241.4,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.61,
+      "elapsed_s": 1246.4,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.53,
+      "elapsed_s": 1251.4,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.54,
+      "elapsed_s": 1256.4,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.68,
+      "elapsed_s": 1261.4,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.62,
+      "elapsed_s": 1266.5,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.64,
+      "elapsed_s": 1271.5,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.61,
+      "elapsed_s": 1276.5,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.68,
+      "elapsed_s": 1281.5,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.43,
+      "elapsed_s": 1286.5,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.7,
+      "elapsed_s": 1291.5,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.7,
+      "elapsed_s": 1296.5,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.61,
+      "elapsed_s": 1301.5,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.66,
+      "elapsed_s": 1306.5,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.62,
+      "elapsed_s": 1311.5,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.64,
+      "elapsed_s": 1316.5,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.47,
+      "elapsed_s": 1321.5,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.74,
+      "elapsed_s": 1326.5,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.59,
+      "elapsed_s": 1331.5,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.61,
+      "elapsed_s": 1336.5,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.59,
+      "elapsed_s": 1341.5,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.64,
+      "elapsed_s": 1346.5,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.74,
+      "elapsed_s": 1351.6,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.41,
+      "elapsed_s": 1356.6,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.59,
+      "elapsed_s": 1361.6,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.66,
+      "elapsed_s": 1366.6,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.57,
+      "elapsed_s": 1371.6,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.68,
+      "elapsed_s": 1376.6,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.57,
+      "elapsed_s": 1381.6,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.49,
+      "elapsed_s": 1386.6,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.33,
+      "elapsed_s": 1391.6,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.59,
+      "elapsed_s": 1396.6,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.62,
+      "elapsed_s": 1401.6,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.74,
+      "elapsed_s": 1406.6,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.53,
+      "elapsed_s": 1411.6,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.68,
+      "elapsed_s": 1416.6,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.59,
+      "elapsed_s": 1421.6,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.62,
+      "elapsed_s": 1426.6,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.53,
+      "elapsed_s": 1431.6,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.61,
+      "elapsed_s": 1436.6,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.68,
+      "elapsed_s": 1441.6,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.37,
+      "elapsed_s": 1446.7,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.64,
+      "elapsed_s": 1451.7,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.66,
+      "elapsed_s": 1456.7,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.66,
+      "elapsed_s": 1461.7,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.64,
+      "elapsed_s": 1466.7,
+      "mem_mb": 135.6,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.64,
+      "elapsed_s": 1471.7,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.68,
+      "elapsed_s": 1476.7,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.68,
+      "elapsed_s": 1481.7,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.61,
+      "elapsed_s": 1486.7,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.59,
+      "elapsed_s": 1491.7,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.49,
+      "elapsed_s": 1496.7,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.61,
+      "elapsed_s": 1501.7,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.62,
+      "elapsed_s": 1506.7,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.39,
+      "elapsed_s": 1511.7,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.62,
+      "elapsed_s": 1516.7,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.68,
+      "elapsed_s": 1521.7,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.53,
+      "elapsed_s": 1526.7,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.41,
+      "elapsed_s": 1531.8,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.68,
+      "elapsed_s": 1536.8,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.66,
+      "elapsed_s": 1541.8,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.64,
+      "elapsed_s": 1546.8,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.59,
+      "elapsed_s": 1551.8,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.68,
+      "elapsed_s": 1556.8,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.51,
+      "elapsed_s": 1561.8,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.8,
+      "elapsed_s": 1566.8,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.49,
+      "elapsed_s": 1571.8,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.57,
+      "elapsed_s": 1576.8,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.59,
+      "elapsed_s": 1581.8,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.61,
+      "elapsed_s": 1586.8,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.72,
+      "elapsed_s": 1591.8,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.53,
+      "elapsed_s": 1596.8,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.53,
+      "elapsed_s": 1601.8,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.66,
+      "elapsed_s": 1606.8,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.61,
+      "elapsed_s": 1611.8,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.57,
+      "elapsed_s": 1616.8,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.59,
+      "elapsed_s": 1621.8,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.62,
+      "elapsed_s": 1626.9,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.47,
+      "elapsed_s": 1631.9,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.45,
+      "elapsed_s": 1636.9,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.7,
+      "elapsed_s": 1641.9,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.66,
+      "elapsed_s": 1646.9,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.72,
+      "elapsed_s": 1651.9,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.66,
+      "elapsed_s": 1656.9,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.61,
+      "elapsed_s": 1661.9,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.41,
+      "elapsed_s": 1666.9,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.66,
+      "elapsed_s": 1671.9,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.72,
+      "elapsed_s": 1676.9,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.59,
+      "elapsed_s": 1681.9,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.61,
+      "elapsed_s": 1686.9,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.61,
+      "elapsed_s": 1691.9,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.64,
+      "elapsed_s": 1696.9,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.43,
+      "elapsed_s": 1701.9,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.66,
+      "elapsed_s": 1706.9,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.62,
+      "elapsed_s": 1712.0,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.68,
+      "elapsed_s": 1717.0,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.54,
+      "elapsed_s": 1722.0,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.66,
+      "elapsed_s": 1727.0,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.62,
+      "elapsed_s": 1732.0,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.45,
+      "elapsed_s": 1737.0,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.64,
+      "elapsed_s": 1742.0,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.59,
+      "elapsed_s": 1747.0,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.66,
+      "elapsed_s": 1752.0,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.62,
+      "elapsed_s": 1757.0,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.61,
+      "elapsed_s": 1762.0,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.33,
+      "elapsed_s": 1767.0,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.54,
+      "elapsed_s": 1772.0,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.64,
+      "elapsed_s": 1777.0,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.64,
+      "elapsed_s": 1782.0,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.57,
+      "elapsed_s": 1787.0,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.66,
+      "elapsed_s": 1792.0,
+      "mem_mb": 135.7,
+      "threads": 32
+    },
+    {
+      "cpu_pct": 0.72,
+      "elapsed_s": 1797.1,
+      "mem_mb": 135.7,
+      "threads": 32
+    }
+  ],
+  "created_at": "2026-05-04T08:08:07.794006+00:00",
+  "duration_s": 1800,
+  "ended_at": "2026-05-04T08:08:07.130992+00:00",
+  "findings": {
+    "count": 2,
+    "items": [
+      {
+        "detail": "148 trigger zones (threshold: 90). Zones used in triggers are evaluated every frame.",
+        "rule_id": "BLOT_004",
+        "severity": "warning"
+      },
+      {
+        "detail": "CTLD detected in mission scripts. checkHoverStatus and checkAIStatus poll every 1\u20132s over all registered transport pilots \u2014 a steady CPU cost at scale.",
+        "rule_id": "PERF_001",
+        "severity": "warning"
+      }
+    ]
+  },
+  "host_id": "host_1ad3930ed744",
+  "mission": "MA_Foothold_Marianas_1.6.1_ww2__bench_bq_3a47794694da",
+  "mission_stem": "MA_Foothold_Marianas_1.6.1_ww2",
+  "run_id": "brun_38f9b9b35f00",
+  "schema_version": 1,
+  "source_url": "https://goon.gsquad.cc/api/v1/bench/runs/brun_38f9b9b35f00",
+  "started_at": "2026-05-04T08:08:07.130992+00:00"
+}
